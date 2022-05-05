@@ -1,0 +1,8 @@
+.footerContainer{
+    background-image: url("../../../public/img/bg-body-footer.png");
+    background-size: 20rem 9rem;
+    background-position: center 5.1rem;
+    background-repeat: no-repeat;
+    height: 14rem;
+}
+

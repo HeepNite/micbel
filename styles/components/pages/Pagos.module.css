@@ -1,0 +1,241 @@
+@media screen and (min-width: 768px) {
+    .pagosMContainer {
+        display: none;
+    }
+}
+
+.pagosMContainer {
+    padding: 1rem 1rem 0rem 1rem;
+}
+
+.pagosHero {
+    margin-bottom: 1rem;
+}
+
+.pagosFormularioRegistro h2, .pagosFormularioFacturacion h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--important-color);
+    margin: 0rem 0rem 0.5rem 0rem;
+    border-bottom: 0.2rem solid var(--buttoms-colors);
+}
+
+.pagosFormularioRegistro p, .pagosFormularioFacturacion p {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.pagosFormularioRegistro .Registration, .Facturacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+.pagosFormularioRegistro, .pagosFormularioFacturacion  {
+    background-color: var(--secondary-background-color);
+    padding: 1rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 20%);
+}
+
+.pagosFormularioRegistro .Registration input, .pagosFormularioRegistro .LogIn input, .Facturacion input {
+    width: 6.7rem;
+    height: 1.7rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--buttoms-colors);
+    padding: 0rem 0.5rem
+}
+
+.pagosFormularioRegistro .Registration input[type="radio"],
+.Facturacion input[type="radio"] {
+    width: 0.9rem;
+    align-self: center;
+    margin-bottom: 0rem;
+}
+
+.pagosFormularioRegistro .Registration label, .Facturacion label {
+    width: 92%;
+    font-size: 0.8rem;
+    align-self: center;
+}
+
+.pagosFormularioRegistro .Registration input[type="email"], .pagosFormularioRegistro .Registration input[type="tel"], .Facturacion input[type="email"], .Facturacion input[type="tel"] {
+    width: 20rem;
+}
+
+.pagosFormularioRegistro .Registration input::placeholder, .pagosFormularioRegistro .LogIn input::placeholder, .Facturacion input::placeholder {
+    font-size: 0.6rem;
+}
+
+.pagosFormularioRegistro .Registration input[type="submit"],
+.pagosFormularioRegistro .LogIn input[type="submit"], .Facturacion input[type="submit"] {
+    margin-top: 0.5rem;
+    width: 100%;
+    height: 2.5rem;
+    background-color: var(--buttoms-colors);
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.pagosFormularioRegistro .Registration textarea, .Facturacion textarea {
+    width: 20rem;
+    height: 5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--buttoms-colors);
+    padding: 0.5rem 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.pagosFormularioRegistro .LogIn {
+    margin: 1rem 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagosFormularioFacturacion {
+    margin: 1rem 0rem;
+}
+
+.pagosFormularioFacturacion form input:nth-child(6) {
+    width: 20rem;
+}
+
+.pagosDelivery {
+    background-color: var(--secondary-background-color);
+    padding: 1rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 20%);
+    margin-bottom: 1rem;
+}
+
+.pagosDelivery h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--important-color);
+    margin: 0rem 0rem 0.5rem 0rem;
+    border-bottom: 0.2rem solid var(--buttoms-colors);
+}
+
+.pagosDelivery form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+
+.pagosDelivery form label {
+    width: 90%;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.pagosCupones h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--important-color);
+    margin: 1rem 0rem 0.5rem 0rem;
+    border-bottom: 0.2rem solid var(--buttoms-colors);
+}
+
+.pagosCupones p {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.pagosCupones form {
+    display: flex;
+    align-items: center;
+}
+
+.pagosCupones form input {
+    width: 15rem;
+    height: 1.7rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 0.5rem 0rem 0rem 0.5rem;
+    border: 0.1rem solid var(--buttoms-colors);
+    padding: 0rem 0.5rem
+}
+
+.pagosCupones form input[type="submit"] {
+    width: 5rem;
+    background-color: var(--buttoms-colors);
+    border: none;
+    border-radius: 0rem 0.5rem 0.5rem 0rem;
+}
+
+.metodoPago {
+    background-color: var(--secondary-background-color);
+    padding: 1rem;
+    margin: 1rem 0rem;
+    border-radius: 0.8rem;
+}
+
+.metodoPago h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--important-color);
+    margin: 0rem 0rem 0.5rem 0rem;
+    border-bottom: 0.2rem solid var(--buttoms-colors);
+}
+
+.metodoPago form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.metodoPago form label {
+    width: 90%;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.metodoPago form input[type="radio"]:nth-of-type(3) {
+    align-self: flex-start;
+    margin-top: 1rem;
+}
+
+.metodoPago p {
+    width: 90%;
+    margin-top: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: justify;
+}
+
+.metodoPago form input[type="submit"] {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--buttoms-colors);
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.metodoPago ul {
+    list-style: none;
+    padding: 0%;
+    width: 100%;
+}
+
+.metodoPago ul li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--buttoms-colors);
+}

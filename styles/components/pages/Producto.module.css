@@ -1,0 +1,322 @@
+@media screen and (min-width: 768px) {
+    .productoMContainer {
+        display: none;
+    }
+}
+
+.productoMContainer {
+    padding: 1rem;
+}
+
+.productoCart {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 7.5rem 8.5rem;
+    grid-template-rows: 5rem 10rem 20rem 5rem 2rem 6rem;
+
+}
+
+.productoName {
+    grid-column: 1/1;
+    grid-row: 1/2;
+    align-self: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--important-color);
+}
+
+.productoName form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6rem;
+    width: 60%;
+}
+
+.productoName h1 {
+    font-size: 1.4rem;
+    margin: 0.4rem 0rem;
+    color: var(--important-color);
+}
+
+.productoName h4 {
+
+    font-size: 0.8rem;
+    color: var(--border-color);
+}
+
+.productoImage {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    align-self: center;
+    width: 100%;
+}
+
+.productoImage img {
+
+    border-radius: 0.8rem;
+    object-fit: cover;
+}
+
+.productoPriceInfo {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    align-self: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 auto;
+}
+
+.innerPriceInfo div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.4rem;
+
+}
+
+.innerPriceInfo h6 {
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-align: center;
+    ;
+}
+
+
+.innerPriceInfo div h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--border-color);
+}
+
+.innerPriceInfo div h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--important-color);
+}
+
+.innerImage {
+    background-color: var(--secondary-background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.3rem;
+    width: 100%;
+    border-radius: 0.8rem;
+    padding: 0.20rem 0.5rem;
+    box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 20%);
+}
+
+.innerImage img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.innerImage h6 {
+    text-align: right;
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: var(--secondary-font-color);
+}
+
+.ProductoDetail {
+    grid-column: 1/3;
+}
+
+.ProductoDetail h3 {
+    margin: 0.6rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--important-color);
+}
+
+.ProductoDetail p {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.ProductoDetail span {
+    font-size: 0.8rem;
+    font-weight: bold;
+
+}
+
+.ProductoDetail div {
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--buttoms-colors);
+}
+
+.productoTimeBanner {
+    grid-column: 1/3;
+    grid-row: 4/4;
+    align-self: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 auto;
+    background-color: var(--secondary-background-color);
+    border-radius: 0.8rem;
+    padding: 0.7rem 0.5rem;
+    box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 20%);
+}
+
+.productoTimeBanner p {
+    border-right: 1px solid var(--dark-color);
+    width: 50%;
+    text-align: center;
+}
+
+.productoTimeBanner h3 {
+    width: 50%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.productoDeliveryBanner {
+    grid-column: 1/3;
+    grid-row: 5/5;
+    align-self: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 auto;
+}
+
+.productoDeliveryBanner span {
+    width: 50%;
+}
+
+.productoDeliveryBanner p {
+    width: 85%;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.productoCartBtn {
+    margin-top: 1.2rem;
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: start;
+}
+
+.productoCartBtn form {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+
+}
+
+.productoCartBtn form input {
+    width: 2rem;
+    height: 3rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--border-color);
+    padding: 0.7rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.productoCartBtn button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.8rem;
+    border: 1px solid var(--border-color);
+    font-weight: bold;
+}
+
+.addCart {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0rem 0.5rem;
+    width: 55%;
+    gap: 0.5rem;
+    height: 3rem;
+    border-radius: 0.8rem;
+}
+
+.productoBanner {
+    display: flex;
+    background-color: var(--buttoms-colors);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.8rem;
+    padding: 0.5rem;
+}
+
+.productoBannerDivider p {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.productoMenu ul {
+    list-style: none;
+    display: flex;
+    padding: 0%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 0.3rem;
+}
+
+.productoMenu ul li {
+    display: flex;
+    width: 100%;
+    font-size: 0.96rem;
+    margin: 0 auto;
+
+}
+
+.productoDescriptionText p {
+    font-size: 0.8em;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.productoDescriptionText img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.8rem;
+
+}
+.productoDescriptionImg{
+    display: flex;
+    margin: 1rem 0rem;
+    gap: 0.5rem;
+}
+.productoDescriptionImg p{
+    width: 18rem;
+    font-size: 0.8rem;
+    text-align: left;
+}
+.productoRelates{
+    margin-top: 1rem;
+}
+.productoRelates h2{
+    font-size: 1rem;
+    color: var(--important-color);
+    font-weight: bold;
+}

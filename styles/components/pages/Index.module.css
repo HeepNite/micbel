@@ -1,0 +1,42 @@
+@media(min-width: 768px) {
+    .indexMContainer {
+        display: none;
+    }
+}
+
+.indexMContainer {
+    padding: 1rem 1rem 0rem 1rem;
+}
+.indexBannerProducts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.indexDestacateProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.indexDestacateProduct img {
+    object-fit: cover;
+    border-radius: 0.8rem;
+}
+
+.indexTestimonials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+

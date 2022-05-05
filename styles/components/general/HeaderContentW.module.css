@@ -1,0 +1,12 @@
+.headerContainerW{
+    display: none;
+}
+.headline {
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+
+}
+
