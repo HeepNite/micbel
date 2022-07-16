@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import styles from '../../styles/components/pages/Index.module.css';
 import BannerHeroThree from "../general/BannerHeroThree";
 import Categoriesbar from "../general/CategoriesBar";

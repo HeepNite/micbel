@@ -1,54 +1,54 @@
-.PoliticasMContainer {
+.GeneralPagesMContainer {
     padding: 0rem 1rem;
 }
 
-.politicasHero {
+.GeneralPagesHero {
     position: relative;
     margin-bottom: 1rem;
 }
 
-.politicasContent h2 {
+.GeneralPagesContent h2 {
     font-size: 1rem;
     color: var(--important-color);
     margin-bottom: 1rem;
 }
 
-.politicasContent p {
+.GeneralPagesContent p {
     font-size: 0.7rem;
     color: var(--primary-font-color);
     margin-bottom: 1rem;
 }
 
-.politicsImg {
+.GeneralPagesImg {
     margin-bottom: 1rem;
 }
 
-.politicsImg div {
+.GeneralPagesImg div {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
 }
 
-.politicsImg img {
+.GeneralPagesImg img {
     object-fit: cover;
     border-radius: 0.8rem;
 }
 
-.politicsImgThree {
+.GeneralPagesImgThree {
     display: flex;
     gap: 0.5rem;
 }
 
-.politicsInnerImgThree {
+.GeneralPagesInnerImgThree {
     width: 55%;
-    height: 10rem;
+    height: 13.7rem;
 }
 
-.politicsImgThree img {
+.GeneralPagesImgThree img {
     object-fit: cover;
     border-radius: 0.8rem;
 }
-.politicsInnercContent{
+.GeneralPagesInnercContent{
     width: 42%;
 }

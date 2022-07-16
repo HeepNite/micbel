@@ -1,8 +1,13 @@
 .BannerHeroOneContent {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1;
     padding: 1rem;
-    width: 16rem;
+    width: 100%;
+    height: 100%;
+
 }
 
 .BannerHeroOneContent h1 {
@@ -14,12 +19,17 @@
     margin-bottom: 1rem;
 }
 
+.BannerHeroOneContent div{
+    width: 80%;
+}
+
 .BannerHeroOneContent p {
     font-size: 0.7rem;
     text-align: center;
     font-weight: 400;
     color: var(--light-color);
     line-height: 1.2;
+    
 
 }
 

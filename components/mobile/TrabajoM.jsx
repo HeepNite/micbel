@@ -1,8 +1,8 @@
-import Image from "next/image";
-import styles from "../../styles/components/general/GeneralPages.module.css";
+import Image from "next/image"
+import styles from "../../styles/components/general/GeneralPages.module.css"
 import BannerHeroOne from "../general/BannerHeroOne";
 
-const PoliticasM = () => {
+const TrabajoM = () => {
     return (
         <div className={styles.GeneralPagesMContainer}>
             {/* esta parte sera estatica y un componente */}
@@ -88,4 +88,4 @@ const PoliticasM = () => {
     );
 }
 
-export default PoliticasM;
+export default TrabajoM

@@ -1,0 +1,51 @@
+.RegistroContainerM {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+}
+
+.RegistroContainerM form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+.RegistroContainerM form input {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 0.8rem;
+  border: none;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+.RegistroContainerM form input[type="submit"] {
+  background-color: var(--buttoms-colors);
+  width: 100%;
+}
+
+.RegistroContainerM .AditionalContent {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.RegistroContainerM .AditionalContent p a {
+  color: var(--important-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.RegistroContainerM .AditionalContent li {
+  margin-top: 0.5rem;
+  list-style: none;
+}
+
+@media screen and (min-width: 768px) {
+  .RegistroContainerM {
+    display: none;
+  }
+}

@@ -5,14 +5,14 @@
     padding: 0.5rem 0.5rem;
     border-radius: 0.8rem;
     background-color: var(--secondary-background-color);
-
+    margin: 1rem 0rem;
 }
 
 .productContent h2 {
     font-size: 1rem;
     font-weight: bold;
     color: var(--important-color);
-    width: 62%;
+    width: 33%;
 }
 
 .productContent h4 {
@@ -56,6 +56,8 @@
     border-radius: 0.8rem;
     padding: 1rem;
     box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 20%);
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 .productInnerContent {

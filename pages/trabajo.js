@@ -1,11 +1,12 @@
 import Layaut from "../components/general/Layout";
+import TrabajoM from "../components/mobile/TrabajoM";
 
 const Trabajo = () => {
     return (
         <Layaut pagina={'Trabaja con nosotros'}>
-            <section>
-                <h1>Trabajo</h1>
-            </section>
+            <main>
+                <TrabajoM />
+            </main>
         </Layaut>
     );
 }

@@ -1,12 +1,12 @@
 import Image from "next/image";
+import styles from "../../styles/components/pages/Carrito.module.css";
 const CarritoM = () => {
     return (
-        <div>
-            <section>
-
+        <div className={styles.carritoContainer}>
+            <section className={styles.carritoInnerContainer}>
                 <ul>
                     <li>
-                        <Image src="/images/carrito.png" alt="carrito" width={300} height={300} />
+                        <Image src="/img/pexels-4.jpeg" alt="carrito" width={200} height={200} />
                         <h3>lorem Ipsum</h3>
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -18,7 +18,7 @@ const CarritoM = () => {
                         <button>Eliminar</button>
                     </li>
                     <li>
-                        <Image src="/images/carrito.png" alt="carrito" width={300} height={300} />
+                        <Image src="/img/pexels-5.jpeg" alt="carrito" width={300} height={300} />
                         <h3>lorem Ipsum</h3>
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -30,7 +30,7 @@ const CarritoM = () => {
                         <button>Eliminar</button>
                     </li>
                     <li>
-                        <Image src="/images/carrito.png" alt="carrito" width={300} height={300} />
+                        <Image src="/img/pexels-2.jpeg" alt="carrito" width={300} height={300} />
                         <h3>lorem Ipsum</h3>
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -44,19 +44,19 @@ const CarritoM = () => {
                 </ul>
 
             </section>
-            <section>
+            <section className={styles.fechaCarritoContainer}>
                 <article>
-                    <h2>Fecha</h2>
+                    <h3 className={styles.fechaCarito}>Fecha</h3>
                 </article>
                 <article>
-                    <h2>lorem Ipsum</h2>
+                    <h3>lorem Ipsum</h3>
                 </article>
             </section>
-            <section>
+            <section className={styles.informacionCarritoContainer}>
                 <article>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        <span>Lorem Ipsum is simply dummy </span>text of the printing and typesetting industry.
+                        Lorem Ipsum has been the standard dummy text ever since the 1500s, <span> when an unknown printer took a galley</span> of type and scrambled it to make a type specimen book.
                     </p>
                 </article>
                 <form action="">
@@ -76,8 +76,11 @@ const CarritoM = () => {
                             <h4>$300</h4>
                         </li>
                     </ul>
-                    <input type="submit" value='realizar pedido' />
-                    <input type="submit" value='Limpiar carrito' />
+                    <div>
+                        <button>Comprar</button>
+                        <button>Limpiar</button>
+                    </div>
+
 
                 </form>
             </section>

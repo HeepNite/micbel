@@ -1,5 +1,4 @@
 import styles from '../../styles/components/pages/Cuenta.module.css';
-import Link from 'next/link';
 import Image from 'next/image';
 import BannerHeroOne from '../general/BannerHeroOne';
 import BannerHeroThree from '../general/BannerHeroThree';

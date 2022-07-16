@@ -18,7 +18,7 @@ const NosotrosM = () => {
             {/* verificar si es estatico solo cargar la info (mision vision etc) */}
             <section className={styles.nosotrosMicbelInfo}>
                 <article className={styles.infoImg}>
-                    <Image src="/img/pexels-3.jpeg" alt="Nosotros" width={400} height={200} />
+                    <Image src="/img/pexels-3.jpeg" alt="Nosotros" width={500} height={200} />
                 </article>
                 <article className={styles.infoContent}>
                     <h2>Historia</h2>
@@ -49,7 +49,7 @@ const NosotrosM = () => {
             {/* verificar si vamos a cargar mas datos en caso que sea solo texto carlo estatico (trabajo) */}
             <section className={styles.nosotrosMicbelInfo}>
                 <article className={styles.infoImg}>
-                    <Image src="/img/pexels-3.jpeg" alt="Nosotros" width={400} height={200} />
+                    <Image src="/img/pexels-3.jpeg" alt="Nosotros" width={500} height={200} />
                 </article>
                 <article className={styles.infoContent}>
                     <h2>Historia</h2>
@@ -75,7 +75,7 @@ const NosotrosM = () => {
             {/* verificar si ellos daran trabajos podemos agregar la categoria para que cargen pdf (curriculm) */}
             <section className={styles.nosotrosContactForm}>
                 <article className={styles.formImg}>
-                    <Image src="/img/pexels-3.jpeg" alt="Nosotros" width={550} height={600} />
+                    <Image src="/img/pexels-3.jpeg" alt="Nosotros" width={550} height={500} />
                 </article>
                 <div className={styles.formContent}>
                     <form action="">
