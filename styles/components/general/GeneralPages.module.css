@@ -4,7 +4,11 @@
 
 .GeneralPagesHero {
     position: relative;
+    height: 13.6rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .GeneralPagesContent h2 {

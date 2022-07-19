@@ -9,7 +9,12 @@
 }
 
 .pagosHero {
+    position: relative;
+    height: 13.6rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pagosFormularioRegistro h2, .pagosFormularioFacturacion h2 {
