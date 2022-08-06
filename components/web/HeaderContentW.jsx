@@ -15,7 +15,9 @@ const HeaderContentW = () => {
 
                 <article className={styles.logo}>
                     <Link href='/' passHref>
-                        <Image width={80} height={40} src="/img/logoMicbel.png" alt="Micbel Logo" />
+                        <a>
+                            <Image width={80} height={40} src="/img/logoMicbel.png" alt="Micbel Logo" />
+                        </a>
                     </Link>
                 </article>
 

@@ -42,7 +42,7 @@ const TerminosM = () => {
                             Lorem Ipsum has been the  standard
                         </p>
                     </div>
-                    <Image src="/img/pexels-2.jpeg" alt="politicas" width={400} height={150} />
+                    <Image src="/img/pexels-2.jpeg" alt="politicas" width={400} height={150} priority/>
                 </article>
                 <article>
                     <p>
@@ -66,9 +66,9 @@ const TerminosM = () => {
                 </article>
                 <article className={styles.GeneralPagesImgThree}>
                     <div className={styles.GeneralPagesInnerImgThree}>
-                        <Image src="/img/pexels-2.jpeg" alt="politicas" width={300} height={100} />
-                        <Image src="/img/pexels-2.jpeg" alt="politicas" width={300} height={110} />
-                        <Image src="/img/pexels-2.jpeg" alt="politicas" width={300} height={140} />
+                        <Image src="/img/pexels-2.jpeg" alt="politicas" width={300} height={100} priority/>
+                        <Image src="/img/pexels-2.jpeg" alt="politicas" width={300} height={110} priority/>
+                        <Image src="/img/pexels-2.jpeg" alt="politicas" width={300} height={140} priority/>
                     </div>
                     <div className={styles.GeneralPagesInnercContent}>
                         <p>

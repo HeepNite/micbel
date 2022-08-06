@@ -39,7 +39,7 @@ const CuentaM = () => {
                         <h3>Lorem Impsum</h3>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting
                         </p>
-                        <Image src="/img/pexels-2.jpeg" alt="Nosotros" width={100} height={100} />
+                        <Image src="/img/pexels-2.jpeg" alt="Nosotros" width={100} height={100} priority/>
                     </div>
                     <div className={styles.qualiUser}>
                         <span>Nombre</span>

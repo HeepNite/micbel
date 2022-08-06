@@ -1,12 +1,31 @@
 import LoginM from "../mobile/LoginM";
 import RegistroM from "../mobile/RegistroM";
-import styles from "../../styles/components/pages/Usuario.module.css";
 import CarritoBanner from "./CarritoBanner";
+import styles from "../../styles/components/pages/Usuario.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../../redux/slices/PaginasGenerales/PoliticasSlice";
+import { useState } from "react";
+
+
+
+
 const User = () => {
+
+    const [name, setName] = useState("");
+    const { users } = useSelector((state) => state.users);
+    const dispatch = useDispatch();
+    const addNewUser = () => {
+        dispatch(addUser(name));
+    };
+    const handleChange = (event) => {
+        setName(event.target.value);
+    };
+
+
     return (
         <main>
             <section className={styles.UsuarioContainerM} >
-                <form action="">
+                {/*  <form action="">
                     <span> Ya tienes una cuenta activa en Micbel?</span>
                     <input type="radio" />
                     <label> Iniciar Sesion</label>
@@ -17,8 +36,14 @@ const User = () => {
                     <label> Registrar</label>
                     <RegistroM />
                 </form>
+                <CarritoBanner /> */}
+                <h1>
 
-                <CarritoBanner />
+                    {users}
+
+                </h1>
+                <input type="text" value={name} onChange={handleChange} />
+                <button onClick={addNewUser}>Add</button>
             </section>
         </main>
     );

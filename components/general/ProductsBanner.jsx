@@ -8,9 +8,13 @@ const ProductsBanner = () => {
                 <h2>Nuevos Productos</h2>
                 <ul>
                     <li>
+
                         <Link href='/cuenta' passHref>
-                            <Image src="/img/pexels-4.jpeg" alt="producto" width={80} height={80} />
+                            <a>
+                                <Image src="/img/pexels-4.jpeg" alt="producto" width={80} height={80} />
+                            </a>
                         </Link>
+
                         <div>
                             <h3>Lorem Ipsum</h3>
                             <p>Lorem Ipsum is simply dumm.</p>

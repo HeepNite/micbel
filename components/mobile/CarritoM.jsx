@@ -30,7 +30,7 @@ const CarritoM = () => {
                         <button>Eliminar</button>
                     </li>
                     <li>
-                        <Image src="/img/pexels-2.jpeg" alt="carrito" width={300} height={300} />
+                        <Image src="/img/pexels-2.jpeg" alt="carrito" width={300} height={300} priority />
                         <h3>lorem Ipsum</h3>
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.

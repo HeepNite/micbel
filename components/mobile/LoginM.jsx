@@ -3,7 +3,8 @@ import styles from "../../styles/components/pages/Login.module.css";
 const LoginM = () => {
     return (
         <section className={styles.LoginContainerM}>
-            <form action="">
+            <form className={styles.Form}>
+
                 <input type="email" name="email" placeholder="Email" />
                 <input type="password" name="password" placeholder="Password" />
                 <input type="submit" value="Login" />
@@ -11,7 +12,7 @@ const LoginM = () => {
 
             <article className={styles.AditionalContent}>
                 <p>
-                    Al continuar, aceptas <a href="#">las Condiciones de uso </a> 
+                    Al continuar, aceptas <a href="#">las Condiciones de uso </a>
                     y <a href="#"> el Aviso de privacidad </a> de Micbel.
                 </p>
 

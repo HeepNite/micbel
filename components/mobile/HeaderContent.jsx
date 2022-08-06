@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from '../../styles/components/general/HeaderContentM.module.css';
 
-import {RiMenuFoldFill} from 'react-icons/ri';
+import { RiMenuFoldFill } from 'react-icons/ri';
 
 import HamburgerMenu from "./HamburgerMenu";
 const HeaderContentM = () => {
@@ -14,7 +14,9 @@ const HeaderContentM = () => {
                 <div className={styles.principalBar}>
                     <article className={styles.logo}>
                         <Link href='/' passHref>
-                            <Image width={80} height={50} src="/img/logoMicbel.png" alt="Micbel Logo" />
+                            <a>
+                                <Image width={80} height={50} src="/img/logoMicbel.png" alt="Micbel Logo" />
+                            </a>
                         </Link>
                     </article>
                     {/* transform in hamburger menu */}

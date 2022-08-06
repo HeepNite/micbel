@@ -9,7 +9,9 @@ const Relates = () => {
                     <article className={styles.productInnerContent}>
 
                         <Link href='/cuenta' passHref>
-                            <Image src="/img/pexels-4.jpeg" alt="producto" width={380} height={200} />
+                            <a>
+                                <Image src="/img/pexels-4.jpeg" alt="producto" width={380} height={200} />
+                            </a>
                         </Link>
                         <h5>Lorem Ipsum is simply dummy text of the</h5>
                         <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>

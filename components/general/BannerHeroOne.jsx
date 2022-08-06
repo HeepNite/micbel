@@ -15,7 +15,7 @@ const BannerHeroOne = () => {
 
             </article>
             <article className={styles.BannerHeroOneImg}>
-                <Image src="/img/pexels-2.jpeg" alt="Nosotros" width={500} height={330} />
+                <Image src="/img/pexels-2.jpeg" alt="Nosotros" width={500} height={330} priority />
             </article>
         </>
     );

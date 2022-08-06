@@ -1,15 +1,19 @@
+
 import styles from "../../styles/components/pages/Registro.module.css";
 
 const RegistroM = () => {
+
     return (
         <section className={styles.RegistroContainerM}>
-            <form action="">
+            <form>
                 <input type="text" placeholder="Nombre" />
                 <input type="text" placeholder="Apellido" />
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
                 <input type="submit" value="Registrar" />
             </form>
+
+
             <article className={styles.AditionalContent}>
                 <p>
                     Al continuar, aceptas <a href="#">las Condiciones de uso </a>
@@ -25,8 +29,8 @@ const RegistroM = () => {
                     </li>
 
                 </ul>
-
             </article>
+
         </section>
 
     );
