@@ -4,7 +4,16 @@ import BannerHero from '../general/BannerHero';
 import BannerHeroThree from '../general/BannerHeroThree';
 import CategoriesBar from '../general/CategoriesBar';
 
-const NosotrosM = () => {
+const NosotrosM = ({ data }) => {
+
+    const { ImagenBannerUno, TituloUno, DescripcionUno,
+        TituloDos, DescripcionDos,
+        TituloTres, DescripcionTres, ImagenBannerDos, ImagenBannerFondo,
+        TituloCuatro, DescripcionCuatro, TituloCinco, DescripcionCinco,
+        TituloSeis, DescripcionSeis, ImagenBannerTres, TituloSiete, DescripcionSiete,
+        TituloOcho, DescripcionOcho, TituloNueve, DescripcionNueve,
+    } = data;
+
     return (
         <div className={styles.nosotrosMContainer}>
             {/* imagenes e info desde la base de datos */}
@@ -18,24 +27,20 @@ const NosotrosM = () => {
             {/* verificar si es estatico solo cargar la info (mision vision etc) */}
             <section className={styles.nosotrosMicbelInfo}>
                 <article className={styles.infoImg}>
-                    <Image src="/img/pexels-3.jpeg" alt="Nosotros" width={500} height={200} />
+                    <Image src={ImagenBannerUno.url} alt="Nosotros" width={500} height={200} />
                 </article>
                 <article className={styles.infoContent}>
-                    <h2>Historia</h2>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an
-                    </p><br />
+                    <h2>{TituloUno}</h2>
+                    <p>{DescripcionUno}</p>
+                    <br />
                     <div className={styles.infoInnerContent}>
                         <div>
-                            <h2>Visión</h2>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <h2>{TituloDos}</h2>
+                            <p>{DescripcionDos}</p>
                         </div>
                         <div>
-                            <h2>Visión</h2>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <h2>{TituloTres}</h2>
+                            <p> {DescripcionTres} </p>
                         </div>
                     </div>
                 </article>
@@ -49,24 +54,20 @@ const NosotrosM = () => {
             {/* verificar si vamos a cargar mas datos en caso que sea solo texto carlo estatico (trabajo) */}
             <section className={styles.nosotrosMicbelInfo}>
                 <article className={styles.infoImg}>
-                    <Image src="/img/pexels-3.jpeg" alt="Nosotros" width={500} height={200} />
+                    <Image src={ImagenBannerDos.url} alt="Nosotros" width={500} height={200} />
                 </article>
                 <article className={styles.infoContent}>
-                    <h2>Historia</h2>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an
-                    </p><br />
+                    <h2>{TituloCuatro}</h2>
+                    <p>{DescripcionCuatro}</p>
+                    <br />
                     <div className={styles.infoInnerContent}>
                         <div>
-                            <h2>Visión</h2>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <h2>{TituloCinco}</h2>
+                            <p>{DescripcionCinco}</p>
                         </div>
                         <div>
-                            <h2>Visión</h2>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <h2>{TituloSeis}</h2>
+                            <p>{DescripcionSeis}</p>
                         </div>
                     </div>
                 </article>
@@ -75,7 +76,7 @@ const NosotrosM = () => {
             {/* verificar si ellos daran trabajos podemos agregar la categoria para que cargen pdf (curriculm) */}
             <section className={styles.nosotrosContactForm}>
                 <article className={styles.formImg}>
-                    <Image src="/img/pexels-3.jpeg" alt="Nosotros" width={550} height={500} />
+                    <Image src={ImagenBannerFondo.url} alt="Nosotros" width={550} height={500} />
                 </article>
                 <div className={styles.formContent}>
                     <form action="">
@@ -87,30 +88,26 @@ const NosotrosM = () => {
                         <textarea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
                         <button>Enviar</button>
                     </form>
-                 
+
                 </div>
             </section>
             {/* cargar de manera estatica la info de las empresas con la que trabajan */}
             <section className={styles.nosotrosMicbelInfo}>
                 <article className={styles.infoImg}>
-                    <Image src="/img/pexels-3.jpeg" alt="Nosotros" width={400} height={200} />
+                    <Image src={ImagenBannerTres.url} alt="Nosotros" width={400} height={200} />
                 </article>
                 <article className={styles.infoContent}>
-                    <h2>Historia</h2>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an
-                    </p><br />
+                    <h2>{TituloSiete}</h2>
+                    <p>{DescripcionSiete}</p>
+                    <br />
                     <div className={styles.infoInnerContent}>
                         <div>
-                            <h2>Visión</h2>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <h2>{TituloOcho}</h2>
+                            <p>{DescripcionOcho}</p>
                         </div>
                         <div>
-                            <h2>Visión</h2>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <h2>{TituloNueve}</h2>
+                            <p>{DescripcionNueve}</p>
                         </div>
                     </div>
                 </article>

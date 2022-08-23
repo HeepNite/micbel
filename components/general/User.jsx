@@ -2,24 +2,12 @@ import LoginM from "../mobile/LoginM";
 import RegistroM from "../mobile/RegistroM";
 import CarritoBanner from "./CarritoBanner";
 import styles from "../../styles/components/pages/Usuario.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "../../redux/slices/PaginasGenerales/PoliticasSlice";
-import { useState } from "react";
+
 
 
 
 
 const User = () => {
-
-    const [name, setName] = useState("");
-    const { users } = useSelector((state) => state.users);
-    const dispatch = useDispatch();
-    const addNewUser = () => {
-        dispatch(addUser(name));
-    };
-    const handleChange = (event) => {
-        setName(event.target.value);
-    };
 
 
     return (
@@ -39,11 +27,8 @@ const User = () => {
                 <CarritoBanner /> */}
                 <h1>
 
-                    {users}
-
                 </h1>
-                <input type="text" value={name} onChange={handleChange} />
-                <button onClick={addNewUser}>Add</button>
+
             </section>
         </main>
     );

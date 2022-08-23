@@ -1,21 +1,24 @@
 import Image from "next/image";
 import styles from "../../styles/components/general/BannerHeroOne.module.css";
+import { useBannerHeroOne } from "../hooks/useBannerHeroOne";
+
 const BannerHeroOne = () => {
+
+    const { BannerHeroOne } = useBannerHeroOne()
+
+    const { TituloBanner, DescripcionBanner, ImagenFondo } = BannerHeroOne.BannerHeroOneC
+
     return (
         <>
             <article className={styles.BannerHeroOneContent}>
                 <div>
-                    <h1>Lorem Ipsum</h1>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    </p><br />
-
+                    <h1>{TituloBanner}</h1>
+                    <p>{DescripcionBanner}</p>
                 </div>
 
             </article>
             <article className={styles.BannerHeroOneImg}>
-                <Image src="/img/pexels-2.jpeg" alt="Nosotros" width={500} height={330} priority />
+                <Image src={ImagenFondo.url} alt="Nosotros" width={500} height={330} priority />
             </article>
         </>
     );
