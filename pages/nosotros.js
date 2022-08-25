@@ -1,26 +1,36 @@
+import { BannerHeroThreeProvider } from "../components/context/BannerHeroThreeC";
 import Layaut from "../components/general/Layout";
 import NosotrosM from "../components/mobile/NosotrosM";
 import NosotrosW from "../components/web/NosotrosW";
 
-const Nosotros = ({ data }) => {
-    console.log(data)
+const Nosotros = ({ dataNosotros, dataBannerHeroThree }) => {
+
     return (
         <Layaut pagina={'Nosotros'}>
             <main>
-                <NosotrosM data={data} />
-                <NosotrosW data={data} />
+                <BannerHeroThreeProvider initialData={dataBannerHeroThree}>
+                    <NosotrosM dataNosotros={dataNosotros} />
+                    <NosotrosW dataNosotros={dataNosotros} />
+                </BannerHeroThreeProvider>
             </main>
         </Layaut>
     );
 }
 
 export async function getStaticProps() {
-    const url = 'http://localhost:1337/nosotros';
-    const res = await fetch(url);
-    const data = await res.json();
+    const urlBannerHeroThree = 'http://localhost:1337/banner-threes?Pagina=nosotros';
+    const urlNosotros = 'http://localhost:1337/nosotros'
+
+    const [dataBannerHeroThree, dataNosotros] = await Promise.all([
+        fetch(urlBannerHeroThree).then(res => res.json()),
+        fetch(urlNosotros).then(res => res.json())
+
+    ])
+
     return {
         props: {
-            data
+            dataBannerHeroThree,
+            dataNosotros
         }
     }
 

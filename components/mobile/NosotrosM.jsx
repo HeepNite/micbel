@@ -1,24 +1,26 @@
 import Image from 'next/image';
 import styles from '../../styles/components/pages/Nosotros.module.css';
-import BannerHero from '../general/BannerHero';
 import BannerHeroThree from '../general/BannerHeroThree';
 import CategoriesBar from '../general/CategoriesBar';
 
-const NosotrosM = ({ data }) => {
+const NosotrosM = ({ dataNosotros }) => {
 
-    const { ImagenBannerUno, TituloUno, DescripcionUno,
-        TituloDos, DescripcionDos,
-        TituloTres, DescripcionTres, ImagenBannerDos, ImagenBannerFondo,
-        TituloCuatro, DescripcionCuatro, TituloCinco, DescripcionCinco,
-        TituloSeis, DescripcionSeis, ImagenBannerTres, TituloSiete, DescripcionSiete,
-        TituloOcho, DescripcionOcho, TituloNueve, DescripcionNueve,
-    } = data;
-
+    const { BannerHero, ImagenBannerHero, TituloBannerHero, DescripcionBannerHero, ImagenBannerUno, TituloUno, DescripcionUno, TituloDos, DescripcionDos, TituloTres, DescripcionTres, ImagenBannerDos, ImagenBannerFondo, TituloCuatro, DescripcionCuatro, TituloCinco, DescripcionCinco, TituloSeis, DescripcionSeis, ImagenBannerTres, TituloSiete, DescripcionSiete, TituloOcho, DescripcionOcho, TituloNueve, DescripcionNueve, } = dataNosotros;
+    console.log(TituloBannerHero)
     return (
         <div className={styles.nosotrosMContainer}>
             {/* imagenes e info desde la base de datos */}
             <section className={styles.nosotrosHero}>
-                <BannerHero />
+                <article className={styles.BannerHeroContent}>
+                    <div>
+                        <h1>{TituloBannerHero}</h1>
+                        <p>{DescripcionBannerHero}</p>
+                    </div>
+                    <Image src={ImagenBannerHero.url} alt="Nosotros" width={140} height={100} />
+                </article>
+                <article className={styles.BannerHeroImg}>
+                    <Image src={BannerHero.url} alt="Nosotros" width={500} height={350} priority />
+                </article>
             </section>
             {/* categorias */}
             <section className={styles.nosotrosCategories}>

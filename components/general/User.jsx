@@ -4,9 +4,6 @@ import CarritoBanner from "./CarritoBanner";
 import styles from "../../styles/components/pages/Usuario.module.css";
 
 
-
-
-
 const User = () => {
 
 

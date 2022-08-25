@@ -61,7 +61,7 @@ const PagosM = () => {
                         <input type="text" placeholder="Estado" />
                         <input type="text" placeholder="Codigo Postal" />
                         <input type="text" placeholder="País" />
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Detalle"></textarea>
+                        <textarea name="pago" id="pago" cols="30" rows="10" placeholder="Detalle"></textarea>
                         <input type="radio" value="Registrarme" />
                         <label>guardar la direccion como principal</label>
                         <input type="submit" value="guardar" />

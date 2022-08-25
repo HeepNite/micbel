@@ -6,7 +6,7 @@ const BannerHeroOne = () => {
 
     const { BannerHeroOne } = useBannerHeroOne()
 
-    const { TituloBanner, DescripcionBanner, ImagenFondo } = BannerHeroOne.BannerHeroOneC
+    const { TituloBanner, DescripcionBanner, ImagenFondo } = BannerHeroOne[0]
 
     return (
         <>

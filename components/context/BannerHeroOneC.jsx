@@ -12,7 +12,7 @@ export const BannerHeroOneProvider = ({ children, initialData }) => {
         ImagenFondo
     })
 
-    const BannerHeroOne = useMemo(() => ({ BannerHeroOneC, setBannerHeroOneC }), [BannerHeroOneC])
+    const BannerHeroOne = useMemo(() => ({ BannerHeroOneC, setBannerHeroOneC }, [BannerHeroOneC]))
 
     return (
         <BannerHeroOneContext.Provider value={{ BannerHeroOne }}>

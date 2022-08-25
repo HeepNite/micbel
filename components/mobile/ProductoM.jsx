@@ -94,16 +94,6 @@ const ProduyctoM = () => {
 
             <section className={styles.productoDescription}>
 
-                <article className={styles.productoMenu}>
-                    <ul>
-                        <li><Link href='/'>loremIps</Link></li>
-                        <li><Link href='/'>loremIps</Link></li>
-                        <li><Link href='/'>loremIps</Link></li>
-                        <li><Link href='/'>loremIps</Link></li>
-                        
-                    </ul>
-                </article>
-
                 <article className={styles.productoDescriptionText}>
                     <p>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -154,9 +144,7 @@ const ProduyctoM = () => {
             </section>
 
             <section className={styles.productoRelates}>
-                <article>
-                    <h2>lorem Ipsum</h2>
-                </article>
+             
                 <article>
                     <RelatesProducts />
                 </article>
