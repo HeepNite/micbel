@@ -1,57 +1,38 @@
 import Link from "next/link";
 import Image from 'next/image';
 import styles from "../../styles/components/general/CategoriesBar.module.css";
+import { useCategoriasBar } from "../hooks/useCategoriasBar";
+
 const Categoriesbar = () => {
+
+    const { dataCategoriasBar } = useCategoriasBar() || []
+
+
+    if (!dataCategoriasBar) {
+        return null
+    }
+
     return (
 
         <article className={styles.globalCategories}>
             <ul>
-                <li>
+                {dataCategoriasBar.map(categoria => (
+                    <li key={categoria.id}>
+                        <Link href={`/categorias/${categoria.UID}`} passHref>
+                            <a>
+                                <Image src={categoria.ImagenCategoria.url} alt="logo" width={50} height={50} priority />
+                            </a>
+                        </Link>
 
-                    <Link href='/' passHref>
-                        <a>
-                            <Image src="/img/olives.png" alt="logo" width={50} height={50} />
-                        </a>
-                    </Link>
-
-                </li>
-                <li>
-
-                    <Link href='/' passHref>
-                        <a>
-                            <Image src="/img/ham.png" alt="logo" width={50} height={50} />
-                        </a>
-                    </Link>
-
-                </li>
-                <li>
-
-                    <Link href='/' passHref>
-                        <a>
-                            <Image src="/img/cheese.png" alt="logo" width={50} height={50} />
-                        </a>
-                    </Link>
-
-                </li>
-                <li>
-
-                    <Link href='/' passHref>
-                        <a>
-                            <Image src="/img/healthy-food.png" alt="logo" width={50} height={50} />
-                        </a>
-                    </Link>
-
-                </li>
-                <li>
-                    <Link href='/' passHref>
-                        <a>
-                            <Image src="/img/milk.png" alt="logo" width={50} height={50} />
-                        </a>
-                    </Link>
-                </li>
+                    </li>
+                ))}
             </ul>
+
         </article>
+
     );
+
+
 }
 
 export default Categoriesbar;

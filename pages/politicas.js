@@ -2,13 +2,14 @@ import { BannerHeroOneProvider } from "../components/context/BannerHeroOneC";
 import Layaut from "../components/general/Layout";
 import PoliticasM from "../components/mobile/PoliticasM";
 import PoliticasW from "../components/web/PoliticasW";
+import { getBannerHeroOne, getPaginasGenenerales } from "../helper/services";
 
-const Politicas = ({ dataPoliticas, dataBannerOne }) => {
+const Politicas = ({ dataPoliticas, dataBanerHeroOne }) => {
 
     return (
         <Layaut pagina={'Politicas y Privacidad'}>
             <main>
-                <BannerHeroOneProvider initialData={dataBannerOne}>
+                <BannerHeroOneProvider dataBanerHeroOne={dataBanerHeroOne}>
                     <PoliticasM dataPoliticas={dataPoliticas} />
                     <PoliticasW dataPoliticas={dataPoliticas} />
                 </BannerHeroOneProvider>
@@ -18,17 +19,14 @@ const Politicas = ({ dataPoliticas, dataBannerOne }) => {
 }
 
 export async function getStaticProps() {
-    const urlPoliticas = 'http://localhost:1337/paginas-generales?Pagina=politicas-de-privacidad';
-    const urlBannerOne = 'http://localhost:1337/banner-ones?Pagina=politicas-de-privacidad';
+    const urlEndPoint = 'politicas-de-privacidad'
+    const dataPoliticas = await getPaginasGeneneralesInfo(urlEndPoint)
+    const dataBanerHeroOne = await getBannerHeroOne(urlEndPoint)
 
-    const [dataPoliticas, dataBannerOne] = await Promise.all([
-        fetch(urlPoliticas).then(res => res.json()),
-        fetch(urlBannerOne).then(res => res.json())
-    ])
     return {
         props: {
             dataPoliticas,
-            dataBannerOne
+            dataBanerHeroOne
         }
     }
 }

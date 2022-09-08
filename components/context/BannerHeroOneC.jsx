@@ -1,21 +1,11 @@
-import { createContext, useMemo, useState } from "react";
+import { createContext} from "react"
 
-export const BannerHeroOneContext = createContext();
+export const BannerHeroOneContext = createContext()
 
-export const BannerHeroOneProvider = ({ children, initialData }) => {
-
-    const { TituloBanner, DescripcionBanner, ImagenFondo } = initialData[0]
-
-    const [BannerHeroOneC, setBannerHeroOneC] = useState({
-        TituloBanner,
-        DescripcionBanner,
-        ImagenFondo
-    })
-
-    const BannerHeroOne = useMemo(() => ({ BannerHeroOneC, setBannerHeroOneC }, [BannerHeroOneC]))
+export const BannerHeroOneProvider = ({ children, dataBanerHeroOne }) => {
 
     return (
-        <BannerHeroOneContext.Provider value={{ BannerHeroOne }}>
+        <BannerHeroOneContext.Provider value={{ dataBanerHeroOne }}>
             {children}
         </BannerHeroOneContext.Provider>
     )

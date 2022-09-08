@@ -1,16 +1,22 @@
-import { BannerHeroThreeProvider } from "../components/context/BannerHeroThreeC";
 import Layaut from "../components/general/Layout";
+
 import NosotrosM from "../components/mobile/NosotrosM";
 import NosotrosW from "../components/web/NosotrosW";
 
-const Nosotros = ({ dataNosotros, dataBannerHeroThree }) => {
+import { BannerHeroThreeProvider } from "../components/context/BannerHeroThreeC";
+import { getBannerHeroThree, getCategoriasBar, getNosotrosInfo } from "../helper/services";
+import { CategoriasBarProvider } from "../components/context/CategoriasBarC";
+
+const Nosotros = ({ dataNosotros, dataBannerHeroThree, dataCategoriasBar }) => {
 
     return (
         <Layaut pagina={'Nosotros'}>
             <main>
-                <BannerHeroThreeProvider initialData={dataBannerHeroThree}>
-                    <NosotrosM dataNosotros={dataNosotros} />
-                    <NosotrosW dataNosotros={dataNosotros} />
+                <BannerHeroThreeProvider dataBannerHeroThree={dataBannerHeroThree}>
+                    <CategoriasBarProvider dataCategoriasBar={dataCategoriasBar}>
+                        <NosotrosM dataNosotros={dataNosotros} />
+                        <NosotrosW dataNosotros={dataNosotros} />
+                    </CategoriasBarProvider>
                 </BannerHeroThreeProvider>
             </main>
         </Layaut>
@@ -18,19 +24,15 @@ const Nosotros = ({ dataNosotros, dataBannerHeroThree }) => {
 }
 
 export async function getStaticProps() {
-    const urlBannerHeroThree = 'http://localhost:1337/banner-threes?Pagina=nosotros';
-    const urlNosotros = 'http://localhost:1337/nosotros'
-
-    const [dataBannerHeroThree, dataNosotros] = await Promise.all([
-        fetch(urlBannerHeroThree).then(res => res.json()),
-        fetch(urlNosotros).then(res => res.json())
-
-    ])
-
+    const urlEndPoint = 'nosotros'
+    const dataBannerHeroThree = await getBannerHeroThree(urlEndPoint)
+    const dataNosotros = await getNosotrosInfo()
+    const dataCategoriasBar = await getCategoriasBar()
     return {
         props: {
             dataBannerHeroThree,
-            dataNosotros
+            dataNosotros,
+            dataCategoriasBar
         }
     }
 

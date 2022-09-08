@@ -28,7 +28,7 @@ const IndexM = () => {
 
             {/* banner grid de los productos nuevos mas imagenes en slider */}
             <section className={styles.indexBannerProducts}>
-              <ProductsBanner/>
+                <ProductsBanner />
             </section>
 
             {/* grid de productos con slider y barra de categorias */}
@@ -53,7 +53,7 @@ const IndexM = () => {
 
             {/* banner testiomoniales con slider*/}
             <section className={styles.indexTestimonials}>
-               <ReviewBaner/>
+                <ReviewBaner />
             </section>
         </div>
     );

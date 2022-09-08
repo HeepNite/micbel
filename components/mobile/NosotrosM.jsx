@@ -6,7 +6,7 @@ import CategoriesBar from '../general/CategoriesBar';
 const NosotrosM = ({ dataNosotros }) => {
 
     const { BannerHero, ImagenBannerHero, TituloBannerHero, DescripcionBannerHero, ImagenBannerUno, TituloUno, DescripcionUno, TituloDos, DescripcionDos, TituloTres, DescripcionTres, ImagenBannerDos, ImagenBannerFondo, TituloCuatro, DescripcionCuatro, TituloCinco, DescripcionCinco, TituloSeis, DescripcionSeis, ImagenBannerTres, TituloSiete, DescripcionSiete, TituloOcho, DescripcionOcho, TituloNueve, DescripcionNueve, } = dataNosotros;
-    console.log(TituloBannerHero)
+
     return (
         <div className={styles.nosotrosMContainer}>
             {/* imagenes e info desde la base de datos */}

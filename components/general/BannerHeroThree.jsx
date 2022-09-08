@@ -5,12 +5,13 @@ import { useBannerHeroThree } from "../hooks/useBannerHeroThree";
 
 const BannerHeroThree = () => {
 
-    const { BannerHeroThree } = useBannerHeroThree()
+    const dataBannerHeroThree = useBannerHeroThree() || [];
 
-    const { ImagenUno, ImagenDos, ImagenTres } = BannerHeroThree[0]
+    if(!dataBannerHeroThree) {
+        return null;
+    }
 
-
-
+    const { ImagenUno, ImagenDos, ImagenTres } = dataBannerHeroThree[0] || {};
 
     return (
         <div className={styles.BannerHeroThreeContainer}>

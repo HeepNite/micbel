@@ -1,11 +1,11 @@
 import Layaut from "../components/general/Layout"
 import User from "../components/general/User"
-import { getCategorias } from "../helper/Ssr"
+import { getBannerHeroOne } from "../helper/services"
 
 
-const usuario = ({ }) => {
 
-  const data = getCategorias().then(res => console.log(res))
+const usuario = ({ dataBanerHeroOne }) => {
+    console.log(dataBanerHeroOne)
 
     return (
         <Layaut pagina={'Usuario'}>
@@ -16,16 +16,14 @@ const usuario = ({ }) => {
     )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
+
+    const dataBanerHeroOne = await getBannerHeroOne()
     return {
-
         props: {
-
-            data: 'hola'
+            dataBanerHeroOne
         }
     }
 }
-
-
 export default usuario

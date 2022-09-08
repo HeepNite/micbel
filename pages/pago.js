@@ -3,13 +3,15 @@ import { BannerHeroThreeProvider } from "../components/context/BannerHeroThreeC"
 import Layaut from "../components/general/Layout";
 import PagosM from "../components/mobile/PagosM";
 import PagosW from "../components/web/PagosW";
+import { getBannerHeroOne, getBannerHeroThree } from "../helper/services";
 
-const Pagos = ({ dataBannerOne, dataBannerHeroThree }) => {
+const Pagos = ({ dataBanerHeroOne, dataBannerHeroThree }) => {
     return (
         <Layaut pagina={'Pagos'}>
             <main>
-                <BannerHeroOneProvider initialData={dataBannerOne}>
-                    <BannerHeroThreeProvider initialData={dataBannerHeroThree}>
+
+                <BannerHeroOneProvider dataBanerHeroOne={dataBanerHeroOne}>
+                    <BannerHeroThreeProvider dataBannerHeroThree={dataBannerHeroThree}>
                         <PagosM />
                         <PagosW />
                     </BannerHeroThreeProvider>
@@ -21,24 +23,16 @@ const Pagos = ({ dataBannerOne, dataBannerHeroThree }) => {
 
 
 export async function getStaticProps() {
-
-    const urlPagos = ''
-    const urlBannerOne = 'http://localhost:1337/banner-ones?Pagina=pagos'
-    const urlBannerHeroThree = 'http://localhost:1337/banner-threes?Pagina=pagos';
-
-
-    const [dataBannerOne, dataBannerHeroThree] = await Promise.all([
-        fetch(urlBannerOne).then(res => res.json()),
-        fetch(urlBannerHeroThree).then(res => res.json())
-    ])
-
+    const urlEndPoint = 'pagos'
+    const dataBannerHeroThree = await getBannerHeroThree(urlEndPoint)
+    const dataBanerHeroOne = await getBannerHeroOne(urlEndPoint)
     return {
+
         props: {
-            dataBannerOne,
+            dataBanerHeroOne,
             dataBannerHeroThree
         }
     }
 }
-
 
 export default Pagos;

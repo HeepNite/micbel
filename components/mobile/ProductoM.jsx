@@ -1,14 +1,15 @@
 import styles from '../../styles/components/pages/Producto.module.css'
-import Link from 'next/link';
 import Image from 'next/image';
 import RelatesProducts from '../general/RelatesProducts';
 import BannerHeroOne from '../general/BannerHeroOne';
+
 const ProduyctoM = () => {
     return (
         <div className={styles.productoMContainer}>
             {/* banner desarrollado como componnte estatico */}
             <section className={styles.poductoHeroBanner}>
-                <BannerHeroOne />
+            <BannerHeroOne />
+                
             </section>
             {/* obtener datos de la base de datos */}
             <section className={styles.productoCart}>

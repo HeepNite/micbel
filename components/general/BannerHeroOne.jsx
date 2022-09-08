@@ -4,9 +4,13 @@ import { useBannerHeroOne } from "../hooks/useBannerHeroOne";
 
 const BannerHeroOne = () => {
 
-    const { BannerHeroOne } = useBannerHeroOne()
+    const { dataBanerHeroOne } = useBannerHeroOne() || []
 
-    const { TituloBanner, DescripcionBanner, ImagenFondo } = BannerHeroOne[0]
+    if (!dataBanerHeroOne) {
+        return null
+    }
+
+    const { TituloBanner, DescripcionBanner, ImagenFondo } = dataBanerHeroOne[0] || {}
 
     return (
         <>

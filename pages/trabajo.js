@@ -1,13 +1,14 @@
 import { BannerHeroOneProvider } from "../components/context/BannerHeroOneC";
 import Layaut from "../components/general/Layout";
 import TrabajoM from "../components/mobile/TrabajoM";
+import { getBannerHeroOne, getPaginasGenenerales } from "../helper/services";
 
-const Trabajo = ({ dataTrabajos, dataBannerOne }) => {
+const Trabajo = ({ dataTrabajos, dataBanerHeroOne }) => {
 
     return (
         <Layaut pagina={'Trabaja con nosotros'}>
             <main>
-                <BannerHeroOneProvider initialData={dataBannerOne}>
+                <BannerHeroOneProvider dataBanerHeroOne={dataBanerHeroOne}>
                     <TrabajoM dataTrabajos={dataTrabajos} />
                 </BannerHeroOneProvider>
             </main>
@@ -16,18 +17,15 @@ const Trabajo = ({ dataTrabajos, dataBannerOne }) => {
 }
 
 export async function getStaticProps() {
-    const urlTrabajos = 'http://localhost:1337/paginas-generales?Pagina=trabaja-con-nosotros';
-    const urlBannerOne = 'http://localhost:1337/banner-ones?Pagina=trabaja-con-nosotros';
 
-    const [dataTrabajos, dataBannerOne] = await Promise.all([
-        fetch(urlTrabajos).then(res => res.json()),
-        fetch(urlBannerOne).then(res => res.json())
-    ])
+    const urlEndPoint = 'trabaja-con-nosotros'
+    const dataTrabajos = await getPaginasGeneneralesInfo(urlEndPoint)
+    const dataBanerHeroOne = await getBannerHeroOne(urlEndPoint)
 
     return {
         props: {
             dataTrabajos,
-            dataBannerOne
+            dataBanerHeroOne
         }
     }
 }
