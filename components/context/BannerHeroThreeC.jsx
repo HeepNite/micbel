@@ -1,5 +1,4 @@
 import { createContext, useMemo, useState } from "react";
-import { FaClosedCaptioning } from "react-icons/fa";
 
 export const BannerHeroThreeContext = createContext()
 

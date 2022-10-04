@@ -1,10 +1,12 @@
+import { CarritoProvider } from '../components/context/CartC'
 import '../styles/globals.css'
+
 function MyApp({ Component, pageProps }) {
 
   return (
-
-    <Component {...pageProps} />
-
+    <CarritoProvider>
+      <Component {...pageProps} />
+    </CarritoProvider>
   )
 }
 

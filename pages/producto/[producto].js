@@ -1,25 +1,51 @@
-import { useRouter } from "next/router"
 import { getProducto } from "../../helper/services"
-
 import Image from 'next/image';
 import Layaut from "../../components/general/Layout";
 import styles from '../../styles/components/pages/Producto.module.css'
-import BannerHeroOne from "../../components/general/BannerHeroOne";
 import RelatesProducts from "../../components/general/RelatesProducts";
-import BannerHeroThree from "../../components/general/BannerHeroThree";
+import { useState } from "react";
+import { useCarrito } from "../../components/hooks/useCarrito";
 
 
 const Producto = ({ dataProducto }) => {
-    console.log(dataProducto)
-    const { Titulo, DescripcionUno, DescripcionCorta, ImagenDescripcionDos, ImagenDescripcionUno, DescripcionDos, DescripcionTres, Precio, DescripcionImagenDesDos, DescripcionImagenDesUno, TituloBannerHero, BannerHero, DescripcionBannerHero, ImagenBannerHero, ImagenDestacada, Descuento
-    } = dataProducto[0] || []
 
-    console.log(dataProducto)
-
-
+    const [cantidadProducto, setcantidadProducto] = useState({ cantidad: 1 })
+    const { name, images, regular_price, sale_price, short_description, description, slug } = dataProducto[0] || []
 
     if (!dataProducto) {
         return null
+    }
+
+    const imageUrl = images[0].src
+    const imageAlt = images[0].alt
+
+    const productImageOne = images[1].src
+    const productImageTow = images[2].src
+
+    const regularPrice = parseInt(regular_price)
+    const salePrice = parseInt(sale_price)
+
+    const { agregarCarrito } = useCarrito()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        let cantidad = parseInt(cantidadProducto.cantidad)
+        if (cantidad <= 0) {
+            alert('Debes seleccionar una cantidad mayor a 0')
+        }
+        else {
+            const carritoProductos = {
+                name,
+                salePrice,
+                regularPrice,
+                short_description,
+                cantidad,
+                imageUrl,
+                imageAlt,
+                slug
+            }
+            agregarCarrito(carritoProductos)
+        }
     }
 
     return (
@@ -29,13 +55,13 @@ const Producto = ({ dataProducto }) => {
                 <section className={styles.ProductoHero}>
                     <article className={styles.BannerHeroContent}>
                         <div>
-                            <h1> {TituloBannerHero}</h1>
-                            <p>{DescripcionBannerHero}</p>
+                            {/*  <h1> {TituloBannerHero}</h1>
+                            <p>{DescripcionBannerHero}</p> */}
                         </div>
-                        {<Image src={ImagenBannerHero.url} alt="Nosotros" width={140} height={100} />}
+                        {/*              {<Image src={ImagenBannerHero.url} alt="Nosotros" width={140} height={100} />} */}
                     </article>
                     <article className={styles.BannerHeroImg}>
-                        {<Image src={BannerHero.url} alt="Nosotros" width={500} height={350} priority />}
+                        {/*   {<Image src={BannerHero.url} alt="Nosotros" width={500} height={350} priority />} */}
                     </article>
                 </section>
                 {/* obtener datos de la base de datos */}
@@ -49,21 +75,26 @@ const Producto = ({ dataProducto }) => {
                             <input type="radio" />
                             <input type="radio" />
                         </form>
-                        <h1>{Titulo}</h1>
+                        <h1>{name}</h1>
                         <h4>20 reviews</h4>
                     </article>
 
                     <article className={styles.productoImage}>
-                        <Image width={400} height={200} src={ImagenDestacada.url} alt="Micbel Logo" />
+                        <Image width={400} height={300} src={imageUrl} alt="Micbel Logo" />
                     </article>
 
                     <article className={styles.productoPriceInfo}>
                         <div className={styles.innerPriceInfo}>
                             <h6>Lorem Ipsum is simply domy</h6>
-                            <div >
-                                <h3>${Precio}</h3>
-                                <h4>${Descuento}</h4>
-                            </div>
+                            {
+                                !salePrice ?
+                                    <h3>${regularPrice}</h3>
+                                    :
+                                    <div>
+                                        <h4> $ <strike>{regularPrice}</strike></h4>
+                                        <h3>$ {salePrice}</h3>
+                                    </div>
+                            }
                         </div>
                         <div className={styles.innerImage}>
                             <Image width={20} height={20} src="/img/clock.png" alt="Micbel Logo" />
@@ -72,10 +103,8 @@ const Producto = ({ dataProducto }) => {
                     </article>
 
                     <article className={styles.ProductoDetail}>
-                        <h3>lorem ipsum</h3>
-                        <p>
-                            {DescripcionCorta}
-                        </p>
+
+                        <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
                         <span> Lorem Ipsum is simply dummy text.</span>
                         <div></div>
                     </article>
@@ -91,8 +120,8 @@ const Producto = ({ dataProducto }) => {
                     </article>
 
                     <article className={styles.productoCartBtn}>
-                        <form action="">
-                            <input type="number" placeholder='1' />
+                        <form action="" onSubmit={handleSubmit}>
+                            <input type="number" name="cantidad" min="1" max="10" id="cantidad" value={cantidadProducto.cantidad} onChange={(e) => setcantidadProducto({ cantidad: e.target.value })} />
                             <button className={styles.addCart}>
                                 <Image width={30} height={30} src="/img/grocery-cart.png" alt="Micbel Logo" />
                                 agregar
@@ -101,7 +130,6 @@ const Producto = ({ dataProducto }) => {
                                 <Image width={25} height={25} src="/img/hearts.png" alt="Micbel Logo" />
                             </button>
                         </form>
-
                     </article>
                 </section>
 
@@ -116,34 +144,21 @@ const Producto = ({ dataProducto }) => {
                 <section className={styles.productoDescription}>
 
                     <article className={styles.productoDescriptionText}>
-                        <p>
-                            {DescripcionUno}
-                        </p>
+                        <p dangerouslySetInnerHTML={{ __html: description }}></p>
 
                         <div className={styles.productoDescriptionImg}>
-                            <Image width={400} height={450} src={ImagenDescripcionUno.url} alt="Micbel Logo" priority />
-                            <p>
-                                {DescripcionImagenDesUno}
-                            </p>
+                            <Image width={400} height={450} src={productImageOne} alt="Micbel  Logo" priority />
+                            <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
 
                         </div>
-                        <p>
-                            {DescripcionDos}
-                        </p>
+                        <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
                         <div className={styles.productoDescriptionImg}>
 
-                            <p>
-                                {DescripcionImagenDesDos}
-                            </p>
-                            <Image width={400} height={150} src={ImagenDescripcionDos.url} alt="Micbel Logo" />
+                            <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
+                            <Image width={400} height={150} src={productImageTow} alt="Micbel  Logo" />
                         </div>
 
-
-
-                        <p>
-                            {DescripcionTres}
-
-                        </p>
+                        <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
 
                     </article>
                 </section>

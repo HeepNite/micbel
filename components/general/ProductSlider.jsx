@@ -5,15 +5,18 @@ import styles from "../../styles/components/general/ProductSlider.module.css";
 import { useProductos } from "../hooks/useProductos";
 import { BsArrowLeftCircleFill, BsFillArrowRightCircleFill, } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import { useCarrito } from "../hooks/useCarrito";
+
 
 const ProductSlider = () => {
 
     const { dataProductos } = useProductos() || []
 
+    const { agregarCarrito } = useCarrito()
+
     if (!dataProductos) {
         return null
     }
-    /*  const target = useRef() */
 
     const [producto, setProducto] = useState([
         {
@@ -22,6 +25,8 @@ const ProductSlider = () => {
         }])
 
     const [index, setIndex] = useState(0)
+
+    const [cantidadProducto, setcantidadProducto] = useState({ cantidad: 1 })
 
     const calculate = (index) => {
         dataProductos.forEach((element, i) => {
@@ -36,11 +41,18 @@ const ProductSlider = () => {
 
     }, [producto.i, index])
 
-    const { Titulo, DescripcionCorta, Precio, ImagenDestacada, UID, Descuento } = producto.element || {}
+    const { name, short_description, price, sale_price, regular_price, images, slug } = producto.element || {}
+
 
     if (!producto.element) {
         return null
     }
+
+    const imageUrl = images[0].src
+    const imageAlt = images[0].alt
+
+    const salePrice = parseInt(sale_price)
+    const regularPrice = parseInt(regular_price)
 
     const handLeft = () => {
 
@@ -62,7 +74,29 @@ const ProductSlider = () => {
         }
     }
 
-    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        let cantidad = parseInt(cantidadProducto.cantidad)
+
+        if (cantidad <= 0) {
+            alert('Debes seleccionar una cantidad mayor a 0')
+        }
+        else {
+            const carritoProductos = {
+                name,
+                salePrice,
+                regularPrice,
+                short_description,
+                cantidad,
+                imageUrl,
+                imageAlt,
+                slug
+            }
+            agregarCarrito(carritoProductos)
+            console.log(carritoProductos)
+        }
+    }
     return (
         <>
             <article className={styles.productContent}>
@@ -76,75 +110,38 @@ const ProductSlider = () => {
                     <button onClick={handLeft} className={styles.ArrowsLeft}><BsArrowLeftCircleFill /></button>
                     <button onClick={handleRight} className={styles.ArrowsRight}><BsFillArrowRightCircleFill /></button>
                 </div>
-                {/*  <div className={styles.productCard}> */}
+
                 <ul className={styles.PrincipalProduct}>
-                    {/*  {dataProductos.map(producto => (
-                            <li key={producto.id}>
-                                <article className={styles.productInnerContent}>
-
-                                    <Link href='/' passHref>
-                                        <a>
-                                            <Image src={producto.imagenDestacada.url} alt="producto" width={380} height={250} />
-                                        </a>
-                                    </Link>
-                                    <h5>{producto.Titulo}</h5>
-                                    <p> {producto.DescripcionCorta} </p>
-                                    <h3>{producto.Precio}</h3>
-                                </article>
-
-                                <form action="">
-                                    <article className={styles.AddCart}>
-                                        <input type="number" name="cantidad" id="cantidad" />
-                                        <div>
-                                            <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
-                                            agregar
-                                        </div>
-                                    </article>
-
-                                    <article className={styles.Stars}>
-                                        <input type="radio" />
-                                        <input type="radio" />
-                                        <input type="radio" />
-                                        <input type="radio" />
-                                        <input type="radio" />
-                                    </article>
-
-                                </form>
-
-                                <article className={styles.FavoritebBtn}>
-                                    <div>
-                                        <Image src="/img/hearts.png" alt="carrito" width={20} height={20} />
-                                    </div>
-                                    <div>
-                                        <Image src="/img/hearts.png" alt="carrito" width={20} height={20} />
-                                    </div>
-                                    <div>
-                                        <Image src="/img/hearts.png" alt="carrito" width={20} height={20} />
-                                    </div>
-                                </article>
-
-                            </li>
-                        ))} */}
                     <li>
                         <article className={styles.productInnerContent}>
 
-                            <Link href={`/producto/${UID}`} passHref>
+                            <Link href={`/producto/${slug}`} passHref>
                                 <a>
-                                    <Image src={ImagenDestacada.url} alt="producto" width={380} height={250} />
+                                    <Image src={imageUrl} alt={imageAlt} title={name} width={380} height={250} />
                                 </a>
                             </Link>
-                            <h5>{Titulo}</h5>
-                            <p> {DescripcionCorta} </p>
-                            <h3> $ {Precio}</h3>
+                            <h5>{name}</h5>
+                            <p dangerouslySetInnerHTML={{ __html: short_description.substr(0, 180) }}></p>
+                            <div>
+                                {
+                                    !salePrice ?
+                                        <h3> $ {price}</h3>
+                                        :
+                                        <div>
+                                            <h4> $ <strike>{regularPrice}</strike></h4>
+                                            <h3>$ {salePrice}</h3>
+                                        </div>
+                                }
+                            </div>
                         </article>
 
-                        <form action="">
+                        <form action="" onSubmit={handleSubmit}>
                             <article className={styles.AddCart}>
-                                <input type="number" name="cantidad" id="cantidad" />
-                                <div>
+                                <input type="number" name="cantidad" id="cantidad" min="1" max="10" value={cantidadProducto.cantidad} onChange={(e) => setcantidadProducto({ cantidad: e.target.value })} />
+                                <button>
                                     <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
                                     agregar
-                                </div>
+                                </button>
                             </article>
 
                             <article className={styles.Stars}>
@@ -172,7 +169,7 @@ const ProductSlider = () => {
                     </li>
 
                 </ul>
-                {/*       </div> */}
+
             </article>
 
         </>

@@ -1,72 +1,72 @@
 .headerContentM {
-    background-color: var(--secondary-background-color);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 0.8rem;
-    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--secondary-background-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .principalBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0.5rem 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0.7rem;
 }
 
-.admin {
-    padding-right: 0.5rem;
-    color: var(--secondary-font-color);
-    font-size: 1.3rem;
+.menuIcons {
+  padding-right: 0.5rem;
+  color: var(--secondary-font-color);
+  font-size: 1.7rem;
 }
 
 .menuM {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .search {
-    border: 1.5px solid var(--details-color);
-    display: flex;
-    padding: 0.1rem;
-    border-radius: 3rem;
-    width: 15.5rem;
+  border: 1.5px solid var(--details-color);
+  display: flex;
+  padding: 0.1rem;
+  border-radius: 3rem;
+  width: 15.5rem;
 }
 
 .search input {
-    border: none;
-    font-size: .6rem;
+  border: none;
+  font-size: 0.6rem;
 }
 
 .search input[type="text"] {
-    padding: 0.5rem;
-    width: 100%;
-    background: transparent;
-    color: var(--primary-color);
+  padding: 0.5rem;
+  width: 100%;
+  background: transparent;
+  color: var(--primary-color);
 }
 
-.search input[type='submit'] {
-    border-radius: 3rem;
-    font-size: 0.5rem;
-    padding: 0rem 0.6rem;
-    font-weight: 800;
+.search input[type="submit"] {
+  border-radius: 3rem;
+  font-size: 0.5rem;
+  padding: 0rem 0.6rem;
+  font-weight: 800;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 12rem;
-    margin: 0.8rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 12rem;
+  margin: 0.8rem auto;
 }
 
 .nav a {
-    font-size: 0.7rem;
+  font-size: 0.7rem;
 }

@@ -1,12 +1,12 @@
 import Layaut from "../components/general/Layout"
 import User from "../components/general/User"
-import { getBannerHeroOne } from "../helper/services"
 
 
 
-const usuario = ({ dataBanerHeroOne }) => {
-    console.log(dataBanerHeroOne)
 
+const usuario = ({ post }) => {
+   console.log(post)
+ 
     return (
         <Layaut pagina={'Usuario'}>
             <main>
@@ -18,11 +18,13 @@ const usuario = ({ dataBanerHeroOne }) => {
 
 export async function getStaticProps() {
 
+    const res = await fetch(`${process.env.API_URL_WORDPRESS}/wp-json/wp/v2/posts`)
+    const post = await res.json()
 
-    const dataBanerHeroOne = await getBannerHeroOne()
     return {
         props: {
-            dataBanerHeroOne
+            post
+
         }
     }
 }

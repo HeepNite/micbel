@@ -8,7 +8,6 @@ import { getBannerHeroThree, getCategoriasBar, getProductos } from "../helper/se
 
 const Index = ({ dataBannerHeroThree, dataCategoriasBar, dataProductos }) => {
 
-
   return (
     <Layaut pagina={"Inicio"}>
       <main>

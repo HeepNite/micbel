@@ -3,15 +3,25 @@ import Image from "next/image";
 import styles from '../../styles/components/general/HeaderContentM.module.css';
 
 import { RiMenuFoldFill } from 'react-icons/ri';
+import { GiShoppingCart } from 'react-icons/gi'
 
 import HamburgerMenu from "./HamburgerMenu";
+import { useCarrito } from "../hooks/useCarrito";
+
 const HeaderContentM = () => {
+
+    const { carrito } = useCarrito()
+    console.log(carrito)
+
     return (
         <div className={styles.headerContainerM}>
 
             <section className={styles.headerContentM}>
 
                 <div className={styles.principalBar}>
+                    <article className={styles.menuIcons}>
+                        <RiMenuFoldFill />
+                    </article>
                     <article className={styles.logo}>
                         <Link href='/' passHref>
                             <a>
@@ -20,8 +30,18 @@ const HeaderContentM = () => {
                         </Link>
                     </article>
                     {/* transform in hamburger menu */}
-                    <article className={styles.admin}>
-                        <RiMenuFoldFill />
+                    <article className={styles.menuIcons}>
+                        <Link href="/carrito" passHref>
+                            <a>
+                            {carrito.map(producto => (
+                                <div>
+
+                                </div>
+                            ))}
+                            <GiShoppingCart />
+                            </a>
+                           
+                        </Link>
                     </article>
                 </div>
 
@@ -36,6 +56,7 @@ const HeaderContentM = () => {
                         <Link href="/">Inicio</Link>
                         <Link href="/nosotros">Nosotros</Link>
                         <Link href="/cuenta">Cuenta</Link>
+
                     </nav>
                 </article>
 
