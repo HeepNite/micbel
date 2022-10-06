@@ -5,11 +5,14 @@ import styles from '../../styles/components/pages/Producto.module.css'
 import RelatesProducts from "../../components/general/RelatesProducts";
 import { useState } from "react";
 import { useCarrito } from "../../components/hooks/useCarrito";
+import Link from "next/link";
 
 
 const Producto = ({ dataProducto }) => {
 
     const [cantidadProducto, setcantidadProducto] = useState({ cantidad: 1 })
+    const [isLoading, setLoading] = useState(false)
+
     const { name, images, regular_price, sale_price, short_description, description, slug } = dataProducto[0] || []
 
     if (!dataProducto) {
@@ -30,22 +33,23 @@ const Producto = ({ dataProducto }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         let cantidad = parseInt(cantidadProducto.cantidad)
-        if (cantidad <= 0) {
-            alert('Debes seleccionar una cantidad mayor a 0')
+        const carritoProductos = {
+            name,
+            salePrice,
+            regularPrice,
+            short_description,
+            cantidad,
+            imageUrl,
+            imageAlt,
+            slug
         }
-        else {
-            const carritoProductos = {
-                name,
-                salePrice,
-                regularPrice,
-                short_description,
-                cantidad,
-                imageUrl,
-                imageAlt,
-                slug
-            }
-            agregarCarrito(carritoProductos)
-        }
+        agregarCarrito(carritoProductos)
+        agregarCarrito(carritoProductos)
+        setTimeout(() => {
+            setLoading(true)
+        }, 1000);
+
+
     }
 
     return (
@@ -122,10 +126,28 @@ const Producto = ({ dataProducto }) => {
                     <article className={styles.productoCartBtn}>
                         <form action="" onSubmit={handleSubmit}>
                             <input type="number" name="cantidad" min="1" max="10" id="cantidad" value={cantidadProducto.cantidad} onChange={(e) => setcantidadProducto({ cantidad: e.target.value })} />
-                            <button className={styles.addCart}>
-                                <Image width={30} height={30} src="/img/grocery-cart.png" alt="Micbel Logo" />
-                                agregar
-                            </button>
+
+                            {
+                                !isLoading
+                                    ? <button className={styles.addCart}>
+                                        <Image width={30} height={30} src="/img/grocery-cart.png" alt="Micbel Logo" />
+                                        agregar
+                                    </button>
+                                    : <>
+                                        <button>
+
+                                            <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
+                                            agregar
+                                        </button>
+                                        <Link href="/carrito" passHref>
+                                            <a>
+                                                <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
+                                                ver carrito
+                                            </a>
+                                        </Link>
+                                    </>
+                            }
+
                             <button>
                                 <Image width={25} height={25} src="/img/hearts.png" alt="Micbel Logo" />
                             </button>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MdTagFaces } from 'react-icons/md'
 import styles from "../../styles/components/pages/Carrito.module.css";
 import Link from "next/link";
@@ -7,13 +7,26 @@ import { useCarrito } from "../hooks/useCarrito";
 
 const CarritoM = () => {
 
-    const { carrito, actualizarCantidad, eliminarProducto } = useCarrito() || []
+    const { carrito, totalProd, setCarrito, actualizarCantidad, eliminarProducto } = useCarrito() || []
     if (!carrito) {
         return null
+    }
+    const [cleanCart, setCleanCart] = useState(false)
+
+    const onReset = (e) => {
+        e.preventDefault()
+        setCleanCart(true)
+        setTimeout(() => {
+            setCleanCart(false)
+            setCarrito([])
+        }, 1000);
+
+
 
     }
 
-    console.log(carrito)
+    const { precioTotalDes, precioTotalReg } = totalProd
+
     return (
         <div className={styles.carritoContainer}>
             <section className={styles.carritoInnerContainer}>
@@ -43,17 +56,20 @@ const CarritoM = () => {
                                     <p dangerouslySetInnerHTML={{ __html: producto.short_description.substr(0, 40) }}></p>
 
 
-                                    {!producto.salePrice ? <h3>$ {producto.regularPrice * producto.cantidad}</h3> :
+                                    {!producto.salePrice ? <h3>$ {producto.regularPrice * producto.cantidadProducto}</h3> :
                                         <div>
-                                            <h4> $ <strike>{producto.regularPrice * producto.cantidad}</strike></h4>
-                                            <h3>$ {producto.salePrice * producto.cantidad}</h3>
+                                            <h4> $ <strike>{producto.regularPrice * producto.cantidadProducto}</strike></h4>
+                                            <h3>$ {producto.salePrice * producto.cantidadProducto}</h3>
                                         </div>
                                     }
                                     <article>
-                                        <input type="number" placeholder="Cantidad" min="1" max="10" value={producto.cantidad} onChange={(e) => actualizarCantidad({ cantidad: e.target.value, slug: producto.slug, regularPrice: producto.regularPrice })} />
-                                        <button onClick={() => {
-                                            eliminarProducto(producto.slug)
-                                        }}>Eliminar</button>
+                                        <input type="number" placeholder="Cantidad" min="1" max="10" value={producto.cantidadProducto} onChange={(e) => actualizarCantidad({
+                                            cantidadProducto: parseInt(e.target.value), slug: producto.slug, salePrice: producto.salePrice, regularPrice: producto.regularPrice
+
+                                        })} />
+
+
+                                        <button onClick={() => { eliminarProducto(producto.slug) }}> Eliminar</button>
                                     </article>
 
                                 </li>
@@ -85,21 +101,23 @@ const CarritoM = () => {
 
                     <ul>
                         <li>
-                            <h4>Precio Regular</h4>
-                            <h4>$300</h4>
+                            <h4>Precio Regular total</h4>
+                            <h4>${precioTotalReg}</h4>
                         </li>
                         <li>
-                            <h4>Sub total</h4>
-                            <h4>$300</h4>
+                            <h4>Precio total Descuento</h4>
+                            <h4>${precioTotalDes}</h4>
                         </li>
                         <li>
-                            <h4>Sub total</h4>
-                            <h4>$300</h4>
+                            <h4> total</h4>
+                            <h4>${precioTotalDes + precioTotalReg}</h4>
                         </li>
                     </ul>
                     <div>
                         <button>Comprar</button>
-                        <button>Limpiar</button>
+                        <button onClick={onReset}>
+                            {!cleanCart ? 'Limpiar' : 'Limpiando...'}
+                        </button>
                     </div>
 
 

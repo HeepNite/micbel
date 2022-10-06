@@ -12,7 +12,7 @@ const ProductSlider = () => {
 
     const { dataProductos } = useProductos() || []
 
-    const { agregarCarrito } = useCarrito()
+    const { agregarCarrito, agregarCarrito2 } = useCarrito()
 
     if (!dataProductos) {
         return null
@@ -26,7 +26,11 @@ const ProductSlider = () => {
 
     const [index, setIndex] = useState(0)
 
-    const [cantidadProducto, setcantidadProducto] = useState({ cantidad: 1 })
+    const [cantidadProducto, setcantidadProducto] = useState(1)
+
+    const [carritoItem, setCarritoItem] = useState(false)
+
+    const [isLoading, setLoading] = useState(false)
 
     const calculate = (index) => {
         dataProductos.forEach((element, i) => {
@@ -35,7 +39,6 @@ const ProductSlider = () => {
             }
         })
     }
-
     useEffect(() => {
         calculate(index)
 
@@ -53,6 +56,9 @@ const ProductSlider = () => {
 
     const salePrice = parseInt(sale_price)
     const regularPrice = parseInt(regular_price)
+
+
+
 
     const handLeft = () => {
 
@@ -73,30 +79,46 @@ const ProductSlider = () => {
             setIndex(newIndex += 1)
         }
     }
+    const handleCantidadProducto = (e) => {
+        let cantidad = parseInt(e.target.value)
+        setcantidadProducto(cantidad)
+    }
+
+    let totalPriceReg = 0
+    let totalPriceDes = 0
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        let cantidad = parseInt(cantidadProducto.cantidad)
+        totalPriceDes = cantidadProducto * salePrice
+        totalPriceReg = cantidadProducto * regularPrice
+        const carritoProductos = {
+            name,
+            salePrice,
+            regularPrice,
+            totalPriceReg,
+            totalPriceDes,
+            short_description,
+            cantidadProducto,
+            imageUrl,
+            imageAlt,
+            slug
+        }
 
-        if (cantidad <= 0) {
-            alert('Debes seleccionar una cantidad mayor a 0')
-        }
-        else {
-            const carritoProductos = {
-                name,
-                salePrice,
-                regularPrice,
-                short_description,
-                cantidad,
-                imageUrl,
-                imageAlt,
-                slug
-            }
-            agregarCarrito(carritoProductos)
-            console.log(carritoProductos)
-        }
+        agregarCarrito(carritoProductos)
+
+        setcantidadProducto(1)
+
+        setTimeout(() => {
+            setLoading(true)
+        }, 100);
+        setTimeout(() => {
+            setLoading(false)
+            setCarritoItem(true)
+        }, 1000);
     }
+
+
     return (
         <>
             <article className={styles.productContent}>
@@ -135,13 +157,25 @@ const ProductSlider = () => {
                             </div>
                         </article>
 
-                        <form action="" onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit}>
                             <article className={styles.AddCart}>
-                                <input type="number" name="cantidad" id="cantidad" min="1" max="10" value={cantidadProducto.cantidad} onChange={(e) => setcantidadProducto({ cantidad: e.target.value })} />
+                                <input type="number" name="cantidad" id="cantidad" min="1" max="10" value={cantidadProducto} onChange={handleCantidadProducto} />
                                 <button>
                                     <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
-                                    agregar
+                                    {!isLoading ? "agregar" : "agregando..."}
                                 </button>
+
+                                {!carritoItem
+                                    ? null : <Link href="/carrito" passHref>
+                                        <a>
+                                            <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
+                                            ver carrito
+                                        </a>
+                                    </Link>}
+
+
+
+
                             </article>
 
                             <article className={styles.Stars}>

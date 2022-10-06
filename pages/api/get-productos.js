@@ -19,15 +19,11 @@ export default async function handler(req, res) {
 
     try {
         if (!slug) {
-            console.log(`entra aqui`)
             const { data } = await api.get('products')
             resProductsData = data
             res.json(resProductsData)
+            return
         }
-        else {
-            console.log(`entra en este otro lado`)
-        }
-
 
         const { data } = await api.get("products", { slug })
         resProductsData = data
