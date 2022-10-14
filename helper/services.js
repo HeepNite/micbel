@@ -28,7 +28,6 @@ export const getProductos = async () => {
 }
 
 export const getProducto = async (urlEndPoint) => {
-    console.log(urlEndPoint)
     const urlProducto = `http://localhost:3000/api/get-productos?slug=${urlEndPoint}`
     const dataProducto = await fetch(urlProducto)
     const productoRes = await dataProducto.json()

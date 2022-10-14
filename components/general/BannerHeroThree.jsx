@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "../../styles/components/general/BannerHeroThree.module.css";
-import { useBannerHeroThree } from "../hooks/useBannerHeroThree";
+import { useBannerHeroThree } from "../hooks/contexHooks/useBannerHeroThree";
 
 
 const BannerHeroThree = () => {

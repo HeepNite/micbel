@@ -15,7 +15,6 @@ export default async function handler(req, res) {
     let resProductsData = {}
 
     const { slug } = req?.query
-    console.log(slug)
 
     try {
         if (!slug) {

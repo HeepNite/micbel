@@ -3,21 +3,25 @@ import Image from 'next/image';
 import Layaut from "../../components/general/Layout";
 import styles from '../../styles/components/pages/Producto.module.css'
 import RelatesProducts from "../../components/general/RelatesProducts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCarrito } from "../../components/hooks/useCarrito";
 import Link from "next/link";
 
 
 const Producto = ({ dataProducto }) => {
 
-    const [cantidadProducto, setcantidadProducto] = useState({ cantidad: 1 })
-    const [isLoading, setLoading] = useState(false)
-
     const { name, images, regular_price, sale_price, short_description, description, slug } = dataProducto[0] || []
 
-    if (!dataProducto) {
-        return null
-    }
+    !dataProducto ? null : dataProducto
+
+    const [cantidadProducto, setcantidadProducto] = useState(1)
+
+    const [carritoItem, setCarritoItem] = useState(false)
+
+    const [isLoading, setLoading] = useState(false)
+
+    const [isMounted, setIsMount] = useState(false)
+
 
     const imageUrl = images[0].src
     const imageAlt = images[0].alt
@@ -30,27 +34,50 @@ const Producto = ({ dataProducto }) => {
 
     const { agregarCarrito } = useCarrito()
 
+    const handleCantidadProducto = (e) => {
+        let cantidad = parseInt(e.target.value)
+        setcantidadProducto(cantidad)
+    }
+
+    let totalPriceReg = 0
+    let totalPriceDes = 0
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        let cantidad = parseInt(cantidadProducto.cantidad)
+
+        totalPriceDes = cantidadProducto * salePrice
+        totalPriceReg = cantidadProducto * regularPrice
         const carritoProductos = {
             name,
             salePrice,
             regularPrice,
+            totalPriceReg,
+            totalPriceDes,
             short_description,
-            cantidad,
+            cantidadProducto,
             imageUrl,
             imageAlt,
             slug
         }
+
         agregarCarrito(carritoProductos)
-        agregarCarrito(carritoProductos)
+
+        setcantidadProducto(1)
+        setCarritoItem(false)
         setTimeout(() => {
             setLoading(true)
+        }, 100);
+        setTimeout(() => {
+            setLoading(false)
+            setCarritoItem(true)
         }, 1000);
-
-
     }
+
+    useEffect(() => {
+        setIsMount(true)
+
+    }, [])
+
 
     return (
         <Layaut>
@@ -107,8 +134,10 @@ const Producto = ({ dataProducto }) => {
                     </article>
 
                     <article className={styles.ProductoDetail}>
-
-                        <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
+                        {isMounted
+                            ? <> <p dangerouslySetInnerHTML={{ __html: short_description }}></p> </>
+                            : null
+                        }
                         <span> Lorem Ipsum is simply dummy text.</span>
                         <div></div>
                     </article>
@@ -125,28 +154,16 @@ const Producto = ({ dataProducto }) => {
 
                     <article className={styles.productoCartBtn}>
                         <form action="" onSubmit={handleSubmit}>
-                            <input type="number" name="cantidad" min="1" max="10" id="cantidad" value={cantidadProducto.cantidad} onChange={(e) => setcantidadProducto({ cantidad: e.target.value })} />
+                            <input type="number" name="cantidad" min="1" max="10" id="cantidad" value={cantidadProducto} onChange={handleCantidadProducto} />
 
-                            {
-                                !isLoading
-                                    ? <button className={styles.addCart}>
-                                        <Image width={30} height={30} src="/img/grocery-cart.png" alt="Micbel Logo" />
-                                        agregar
-                                    </button>
-                                    : <>
-                                        <button>
+                            <button>
+                                <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
+                                {!isLoading ? "agregar" : "agregando..."}
+                            </button>
 
-                                            <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
-                                            agregar
-                                        </button>
-                                        <Link href="/carrito" passHref>
-                                            <a>
-                                                <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
-                                                ver carrito
-                                            </a>
-                                        </Link>
-                                    </>
-                            }
+                            {!carritoItem
+                                ? null
+                                : <Link href="/carrito" passHref>ver carrito...</Link>}
 
                             <button>
                                 <Image width={25} height={25} src="/img/hearts.png" alt="Micbel Logo" />
@@ -165,24 +182,28 @@ const Producto = ({ dataProducto }) => {
 
                 <section className={styles.productoDescription}>
 
-                    <article className={styles.productoDescriptionText}>
-                        <p dangerouslySetInnerHTML={{ __html: description }}></p>
+                    {isMounted
+                        ? <>  <article className={styles.productoDescriptionText}>
+                            <p dangerouslySetInnerHTML={{ __html: description }}></p>
 
-                        <div className={styles.productoDescriptionImg}>
-                            <Image width={400} height={450} src={productImageOne} alt="Micbel  Logo" priority />
+                            <div className={styles.productoDescriptionImg}>
+                                <Image width={400} height={450} src={productImageOne} alt="Micbel  Logo" priority />
+                                <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
+
+                            </div>
+                            <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
+                            <div className={styles.productoDescriptionImg}>
+
+                                <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
+                                <Image width={400} height={150} src={productImageTow} alt="Micbel  Logo" />
+                            </div>
+
                             <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
 
-                        </div>
-                        <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
-                        <div className={styles.productoDescriptionImg}>
-
-                            <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
-                            <Image width={400} height={150} src={productImageTow} alt="Micbel  Logo" />
-                        </div>
-
-                        <p dangerouslySetInnerHTML={{ __html: short_description }}></p>
-
-                    </article>
+                        </article>
+                        </>
+                        : null
+                    }
                 </section>
 
                 <section className={styles.productoRelates}>

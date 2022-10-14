@@ -60,7 +60,6 @@
 .ArrowsLeft svg {
   color: var(--border-color);
   font-size: 1.6rem;
-
 }
 
 .productCard {
@@ -161,7 +160,7 @@
 .AddCart {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 0.3rem;
   padding-left: 0;
   list-style: none;
@@ -183,6 +182,16 @@
   cursor: pointer;
   border: solid 0.14rem var(--border-color);
   box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 20%);
+}
+
+.AddCart  a {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  font-size: 0.85rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.34em;
 }
 
 .FavoritebBtn {

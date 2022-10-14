@@ -3,16 +3,15 @@ import Image from "next/image";
 import styles from '../../styles/components/general/HeaderContentM.module.css';
 
 import { RiMenuFoldFill } from 'react-icons/ri';
-import { GiCeilingLight, GiShoppingCart, GiWoodenClogs } from 'react-icons/gi'
+import { GiShoppingCart } from 'react-icons/gi'
 
 import HamburgerMenu from "./HamburgerMenu";
-import { useCarrito } from "../hooks/useCarrito";
-import { useEffect, useState } from "react";
+import { useCarrito } from "../hooks/contexHooks/useCarrito";
 
 const HeaderContentM = () => {
 
     const { totalProd } = useCarrito() || []
-    !totalProd ? null : console.log(totalProd)
+    !totalProd ? null : totalProd
 
     return (
         <div className={styles.headerContainerM}>
@@ -33,13 +32,13 @@ const HeaderContentM = () => {
                     {/* transform in hamburger menu */}
                     <article className={styles.menuIcons}>
                         <Link href="/carrito" passHref>
-                            <a>
+                            <a className={styles.menuCarrito}>
+                                <GiShoppingCart />
 
                                 <div>
                                     {totalProd.cantidadTotal}
                                 </div>
 
-                                <GiShoppingCart />
                             </a>
 
                         </Link>

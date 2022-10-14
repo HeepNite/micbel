@@ -5,7 +5,6 @@ import User from "../components/general/User"
 
 
 const usuario = ({ post }) => {
-   console.log(post)
  
     return (
         <Layaut pagina={'Usuario'}>

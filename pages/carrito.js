@@ -4,7 +4,7 @@ import CarritoM from "../components/mobile/CarritoM"
 
 const carrito = () => {
     return (
-        <Layaut>
+        <Layaut pagina={'carrito'}>
             <main>
                 <CarritoM/>
             </main>

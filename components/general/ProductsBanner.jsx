@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/future/image";
 import Link from "next/link";
 import styles from "../../styles/components/general/ProductsBanner.module.css";
 const ProductsBanner = () => {
@@ -31,8 +31,8 @@ const ProductsBanner = () => {
                 </ul>
             </article>
             <article className={styles.BannerProductsImg}>
-                <Image src="/img/pexels-4.jpeg" alt="producto" width={400} height={370} />
-                <Image src="/img/pexels-4.jpeg" alt="producto" width={400} height={800} />
+                <Image src="/img/pexels-4.jpeg" alt="producto" width={200} height={165} />
+                <Image src="/img/pexels-4.jpeg" alt="producto" width={200} height={100} />
             </article></>
     );
 }

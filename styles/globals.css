@@ -12,6 +12,7 @@
   -webkit-text-size-adjust: 100%;
   /* 2 */
   font-family: var(--primary-font-family);
+  font-weight: 500;
 }
 
 /* Sections
@@ -413,5 +414,5 @@ template {
   --info-color: #17a2b8;
   --border-color: #867A3B;
   --buttoms-colors: #DECB69;
-  --primary-font-family: "Roboto", sans-serif, monospace;
+  --primary-font-family: "Nunito", sans-serif, monospace;
 }

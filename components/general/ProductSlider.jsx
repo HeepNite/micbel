@@ -1,123 +1,27 @@
 
-import Image from "next/image";
+import Image from "next/future/image";
 import Link from "next/link";
 import styles from "../../styles/components/general/ProductSlider.module.css";
-import { useProductos } from "../hooks/useProductos";
 import { BsArrowLeftCircleFill, BsFillArrowRightCircleFill, } from "react-icons/bs";
-import { useEffect, useState } from "react";
-import { useCarrito } from "../hooks/useCarrito";
+
+import { useProductos } from "../hooks/contexHooks/useProductos";
+import { useSlider } from "../hooks/useSlider";
+import { useAddCarrito } from "../hooks/crudCarrito/useAddCarrito";
 
 
 const ProductSlider = () => {
 
     const { dataProductos } = useProductos() || []
 
-    const { agregarCarrito, agregarCarrito2 } = useCarrito()
+    const { producto, handLeft, handleRight } = useSlider(dataProductos) || []
 
-    if (!dataProductos) {
+    const { isLoading, carritoItem, handleSubmit } = useAddCarrito(producto) || []
+
+    const { name, shortDescription, salePrice, regularPrice, img, slug } = producto || []
+
+    if (!producto) {
         return null
     }
-
-    const [producto, setProducto] = useState([
-        {
-            element: {},
-            i: 0
-        }])
-
-    const [index, setIndex] = useState(0)
-
-    const [cantidadProducto, setcantidadProducto] = useState(1)
-
-    const [carritoItem, setCarritoItem] = useState(false)
-
-    const [isLoading, setLoading] = useState(false)
-
-    const calculate = (index) => {
-        dataProductos.forEach((element, i) => {
-            if (i == 0 || i == index) {
-                setProducto({ element, i })
-            }
-        })
-    }
-    useEffect(() => {
-        calculate(index)
-
-    }, [producto.i, index])
-
-    const { name, short_description, price, sale_price, regular_price, images, slug } = producto.element || {}
-
-
-    if (!producto.element) {
-        return null
-    }
-
-    const imageUrl = images[0].src
-    const imageAlt = images[0].alt
-
-    const salePrice = parseInt(sale_price)
-    const regularPrice = parseInt(regular_price)
-
-
-
-
-    const handLeft = () => {
-
-        if (index == 0) {
-            let newIndex = dataProductos.length - 1
-            setIndex(newIndex)
-        } else {
-            let newIndex = index
-            setIndex(newIndex -= 1)
-        }
-    }
-    const handleRight = () => {
-        if (index == dataProductos.length) {
-            let newIndex = 1
-            setIndex(newIndex)
-        } else {
-            let newIndex = index
-            setIndex(newIndex += 1)
-        }
-    }
-    const handleCantidadProducto = (e) => {
-        let cantidad = parseInt(e.target.value)
-        setcantidadProducto(cantidad)
-    }
-
-    let totalPriceReg = 0
-    let totalPriceDes = 0
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        totalPriceDes = cantidadProducto * salePrice
-        totalPriceReg = cantidadProducto * regularPrice
-        const carritoProductos = {
-            name,
-            salePrice,
-            regularPrice,
-            totalPriceReg,
-            totalPriceDes,
-            short_description,
-            cantidadProducto,
-            imageUrl,
-            imageAlt,
-            slug
-        }
-
-        agregarCarrito(carritoProductos)
-
-        setcantidadProducto(1)
-
-        setTimeout(() => {
-            setLoading(true)
-        }, 100);
-        setTimeout(() => {
-            setLoading(false)
-            setCarritoItem(true)
-        }, 1000);
-    }
-
 
     return (
         <>
@@ -139,19 +43,19 @@ const ProductSlider = () => {
 
                             <Link href={`/producto/${slug}`} passHref>
                                 <a>
-                                    <Image src={imageUrl} alt={imageAlt} title={name} width={380} height={250} />
+                                  <Image src={img} alt={name} title={name} width={300} height={200} /> 
                                 </a>
                             </Link>
                             <h5>{name}</h5>
-                            <p dangerouslySetInnerHTML={{ __html: short_description.substr(0, 180) }}></p>
+                            <p dangerouslySetInnerHTML={{ __html: shortDescription.substr(0, 180) }}></p>
                             <div>
                                 {
                                     !salePrice ?
-                                        <h3> $ {price}</h3>
+                                        <h3> $ {regularPrice}</h3>
                                         :
                                         <div>
-                                            <h4> $ <strike>{regularPrice}</strike></h4>
-                                            <h3>$ {salePrice}</h3>
+                                            <h4> $ <strike>{parseInt(regularPrice)}</strike></h4>
+                                            <h3>$ {parseInt(salePrice)}</h3>
                                         </div>
                                 }
                             </div>
@@ -159,22 +63,15 @@ const ProductSlider = () => {
 
                         <form onSubmit={handleSubmit}>
                             <article className={styles.AddCart}>
-                                <input type="number" name="cantidad" id="cantidad" min="1" max="10" value={cantidadProducto} onChange={handleCantidadProducto} />
+                                {/*   <input type="number" name="cantidad" id="cantidad" min="1" max="10" value={cantidadProducto} onChange={(e) => { setcantidadProducto(parseInt(e.target.value)) }} /> */}
                                 <button>
                                     <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
                                     {!isLoading ? "agregar" : "agregando..."}
                                 </button>
 
                                 {!carritoItem
-                                    ? null : <Link href="/carrito" passHref>
-                                        <a>
-                                            <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
-                                            ver carrito
-                                        </a>
-                                    </Link>}
-
-
-
+                                    ? null
+                                    : <Link href="/carrito" passHref>ver carrito...</Link>}
 
                             </article>
 

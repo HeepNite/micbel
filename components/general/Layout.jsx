@@ -8,7 +8,7 @@ const Layaut = ({ children, pagina }) => {
     return (
         <>
             <Head>
-                <title>Micbel - {pagina}</title>
+                <title>{`Micbel - ${pagina}`}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charSet="utf-8" />
                 <meta name="description" content="Micbel la mejor distribuidora de productos para el hogar" />

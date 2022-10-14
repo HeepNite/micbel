@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from 'next/image';
 import styles from "../../styles/components/general/CategoriesBar.module.css";
-import { useCategoriasBar } from "../hooks/useCategoriasBar";
+import { useCategoriasBar } from "../hooks/contexHooks/useCategoriasBar";
 
 const Categoriesbar = () => {
 

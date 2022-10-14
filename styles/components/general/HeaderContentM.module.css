@@ -23,6 +23,25 @@
   color: var(--secondary-font-color);
   font-size: 1.7rem;
 }
+.menuCarrito {
+  position: relative;
+}
+
+.menuCarrito div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  background-color: var(--details-color);
+  border-radius: 100%;
+  text-align: center;
+  width: 0.8rem;
+  height: 0.8rem;
+  align-self: flex-start;
+  position: absolute;
+  left: 1.2rem;
+  bottom:1.45rem;
+}
 
 .menuM {
   display: flex;

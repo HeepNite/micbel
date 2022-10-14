@@ -5,12 +5,7 @@ import Categoriesbar from "../general/CategoriesBar";
 import ProductSlider from "../general/ProductSlider";
 import ProductsBanner from "../general/ProductsBanner";
 import ReviewBaner from "../general/ReviewBanner";
-import { CarritoProvider } from "../context/CartC";
 const IndexM = () => {
-
-
-
-
 
     return (
         <div className={styles.indexMContainer}>
@@ -39,7 +34,7 @@ const IndexM = () => {
 
             {/* grid de productos con slider y barra de categorias */}
             <section className={styles.indexPrincipalProduct}>
-                             <ProductSlider />
+             {/*    <ProductSlider /> */}
             </section>
 
 
@@ -53,7 +48,7 @@ const IndexM = () => {
 
             {/* grid de productos con slider y barra de categorias */}
             <section className={styles.indexPrincipalProduct}>
-              <ProductSlider /> 
+                {/* <ProductSlider /> */}
             </section>
 
             {/* banner testiomoniales con slider*/}

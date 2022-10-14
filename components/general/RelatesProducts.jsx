@@ -1,5 +1,5 @@
+import Image from "next/future/image";
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../../styles/components/general/RelatesProducts.module.css";
 const Relates = () => {
     return (
@@ -10,7 +10,7 @@ const Relates = () => {
 
                         <Link href='/cuenta' passHref>
                             <a>
-                                <Image src="/img/pexels-4.jpeg" alt="producto" width={380} height={200} />
+                                <Image src="/img/pexels-4.jpeg" alt="producto" width={300} height={200} />
                             </a>
                         </Link>
                         <h5>Lorem Ipsum is simply dummy text of the</h5>

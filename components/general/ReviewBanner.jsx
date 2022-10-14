@@ -1,5 +1,5 @@
 
-import Image from "next/image";
+import Image from "next/future/image";
 import styles from "../../styles/components/general/ReviewBanner.module.css";
 const ReviewBaner = () => {
     return ( 
@@ -24,8 +24,8 @@ const ReviewBaner = () => {
 
                 </article>
                 <article className={styles.testimonialsImages}>
-                    <Image src="/img/pexels-4.jpeg" alt="producto" width={400} height={870} />
-                    <Image src="/img/pexels-4.jpeg" alt="producto" width={400} height={490} />
+                    <Image src="/img/pexels-4.jpeg" alt="producto" width={200} height={200} />
+                    <Image src="/img/pexels-4.jpeg" alt="producto" width={200} height={110} />
                 </article>
         </>
      );
