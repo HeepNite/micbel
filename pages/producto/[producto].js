@@ -4,7 +4,7 @@ import Layaut from "../../components/general/Layout";
 import styles from '../../styles/components/pages/Producto.module.css'
 import RelatesProducts from "../../components/general/RelatesProducts";
 import { useEffect, useState } from "react";
-import { useCarrito } from "../../components/hooks/useCarrito";
+import { useCarrito } from "../../components/hooks/contexHooks/useCarrito"
 import Link from "next/link";
 
 
@@ -80,7 +80,7 @@ const Producto = ({ dataProducto }) => {
 
 
     return (
-        <Layaut>
+        <Layaut pagina={slug}>
             <div className={styles.productoMContainer}>
                 {/* banner desarrollado como componnte estatico */}
                 <section className={styles.ProductoHero}>

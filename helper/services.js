@@ -1,6 +1,8 @@
 
 /* Productos y categorias Woocommerce */
 
+import { PAISES_WOO, PRODUCTOS_WOO_CATEGORIAS, PRODUCTO_WOO } from "./endPoints"
+
 export const getCategoriasBar = async () => {
 
     const urlCategorias = `${process.env.API_URL_INFORMATION}/categorias`
@@ -12,7 +14,7 @@ export const getCategoriasBar = async () => {
 
 export const getCategoria = async (urlEndPoint) => {
 
-    const urlCategoria = `${process.env.API_URL_INFORMATION}/categorias?UID=${urlEndPoint}`
+    const urlCategoria = `${PRODUCTOS_WOO_CATEGORIAS}=${urlEndPoint}`
     const dataCategoria = await fetch(urlCategoria)
     const categoriaRes = await dataCategoria.json()
     return categoriaRes
@@ -28,12 +30,22 @@ export const getProductos = async () => {
 }
 
 export const getProducto = async (urlEndPoint) => {
-    const urlProducto = `http://localhost:3000/api/get-productos?slug=${urlEndPoint}`
+    const urlProducto = `${PRODUCTO_WOO}=${urlEndPoint}`
     const dataProducto = await fetch(urlProducto)
     const productoRes = await dataProducto.json()
     return productoRes
 
 }
+
+/* paises y provincias WOO */
+
+export const getPaisesWoo = async () => {
+    const urlPaises = `${PAISES_WOO}`
+    const dataPaises = await fetch(urlPaises)
+    const paisesRes = await dataPaises.json()
+    return paisesRes
+}
+
 
 /* paginas */
 
