@@ -1,8 +1,14 @@
 import styles from '../../styles/components/pages/Pagos.module.css';
-import Image from 'next/image';
-import BannerHeroOne from '../general/BannerHeroOne';
-import BannerHeroThree from '../general/BannerHeroThree';
+import BannerHeroOne from '../general/banners/BannerHeroOne';
+import BannerHeroThree from '../general/banners/BannerHeroThree';
+import { PagoDetalle } from '../general/cart/PagoDetalle';
+import { DIfAddress } from '../general/users/DIfAddress';
+import { LoginUsuario } from '../general/users/loginUsuario';
+import { RegUsuario } from '../general/users/RegUsuario';
+
+
 const PagosM = () => {
+
     return (
         <div className={styles.pagosMContainer}>
             {/* esta parte sera estatica y un componente */}
@@ -13,60 +19,22 @@ const PagosM = () => {
             {/* formulario de registro o logueo dependiendo de la cuenta esto debe ir en un coponente aparte */}
             <section className={styles.pagosFormularioRegistro}>
                 <article>
-                    <h2>Lorem Ipsum</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <h2>Ya tienes cuenta?</h2>
+                    <p>Genial! ingresa para continuar con tu pedido...</p>
+                    <LoginUsuario />
+                    <h2>No posees cuenta?</h2>
+                    <p>No te preocupes lo solucionamos en un minuto! registrate y disfruta de tu proceso de compra.</p>
+                    <RegUsuario />
                 </article>
 
-                <article>
-                    <form className={styles.Registration} action="">
-                        <input type="text" placeholder="Nombre" />
-                        <input type="text" placeholder="Apellido" />
-                        <input type="email" placeholder="Correo" />
-                        <input type="tel" placeholder="Telefono" />
-                        <input type="password" placeholder="Contraseña" />
-                        <input type="password" placeholder="Confirmar Contraseña" />
-                        <input type="text" placeholder="Direccion" />
-                        <input type="text" placeholder="Ciudad" />
-                        <input type="text" placeholder="Estado" />
-                        <input type="number" placeholder="Codigo Postal" />
-                        <input type="text" placeholder="País" />
-                        <input type="text" placeholder="Nombre de Usuario" />
-
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Detalle"></textarea>
-                        <input type="radio" value="Registrarme" />
-                        <label>guardar esta direccion como principal</label>
-                        <input type="submit" value="Registrarse" />
-                    </form>
-
-                    {/*  <form className={styles.LogIn} action="">
-                        <input type="text" placeholder="Nombre de Usuario" />
-                        <input type="password" placeholder="Contraseña" />
-                        <input type="submit" value="Iniciar Sesión" />
-                    </form> */}
-                </article>
             </section>
-
             {/* guardar nueva dieccion de facturacion dar tambien la chance de que puedan mandar a otras personas o negocios*/}
             <section className={styles.pagosFormularioFacturacion}>
                 <article>
-                    <h2>Lorem Ipsum</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <h2>Para otra persona o negocio?</h2>
+                    <p>Eres lo mas! registra su direccion... nos encargaremos del resto.</p>
                 </article>
-
-                <article>
-                    <form className={styles.Facturacion} action="">
-                        <input type="tel" placeholder="Telefono" />
-                        <input type="text" placeholder="Direccion" />
-                        <input type="text" placeholder="Ciudad" />
-                        <input type="text" placeholder="Estado" />
-                        <input type="text" placeholder="Codigo Postal" />
-                        <input type="text" placeholder="País" />
-                        <textarea name="pago" id="pago" cols="30" rows="10" placeholder="Detalle"></textarea>
-                        <input type="radio" value="Registrarme" />
-                        <label>guardar la direccion como principal</label>
-                        <input type="submit" value="guardar" />
-                    </form>
-                </article>
+                <DIfAddress />
             </section>
 
             {/* eleccion de horarios para el delivery  verificar si solo activar en el momento de elegir el metodo de pago */}
@@ -113,20 +81,7 @@ const PagosM = () => {
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer
                     </p>
-                    <ul>
-                        <li>
-                            <h4>Sub total</h4>
-                            <h4>$300</h4>
-                        </li>
-                        <li>
-                            <h4>Sub total</h4>
-                            <h4>$300</h4>
-                        </li>
-                        <li>
-                            <h4>Sub total</h4>
-                            <h4>$300</h4>
-                        </li>
-                    </ul>
+                    <PagoDetalle />
                     <input type="submit" value='realizar pedido' />
                 </form>
             </section>
@@ -138,5 +93,4 @@ const PagosM = () => {
         </div>
     );
 }
-
-export default PagosM;
+export default PagosM

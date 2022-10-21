@@ -1,13 +1,13 @@
 import Image from "next/image";
-import styles from "../../styles/components/general/BannerHeroThree.module.css";
-import { useBannerHeroThree } from "../hooks/contexHooks/useBannerHeroThree";
+import styles from '../../../styles/components/general/BannerHeroThree.module.css'
+import { useBannerHeroThree } from '../../hooks/contexHooks'
 
 
 const BannerHeroThree = () => {
 
     const dataBannerHeroThree = useBannerHeroThree() || [];
 
-    if(!dataBannerHeroThree) {
+    if (!dataBannerHeroThree) {
         return null;
     }
 

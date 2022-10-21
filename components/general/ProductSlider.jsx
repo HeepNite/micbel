@@ -43,7 +43,7 @@ const ProductSlider = () => {
 
                             <Link href={`/producto/${slug}`} passHref>
                                 <a>
-                                  <Image src={img} alt={name} title={name} width={300} height={200} /> 
+                                    <Image src={img} alt={name} title={name} width={300} height={200} />
                                 </a>
                             </Link>
                             <h5>{name}</h5>
@@ -63,7 +63,6 @@ const ProductSlider = () => {
 
                         <form onSubmit={handleSubmit}>
                             <article className={styles.AddCart}>
-                                {/*   <input type="number" name="cantidad" id="cantidad" min="1" max="10" value={cantidadProducto} onChange={(e) => { setcantidadProducto(parseInt(e.target.value)) }} /> */}
                                 <button>
                                     <Image src="/img/shopping-cart.png" alt="producto" width={25} height={25} />
                                     {!isLoading ? "agregar" : "agregando..."}

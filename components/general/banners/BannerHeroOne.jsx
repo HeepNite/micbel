@@ -1,6 +1,7 @@
 import Image from "next/future/image";
-import styles from "../../styles/components/general/BannerHeroOne.module.css";
-import { useBannerHeroOne } from "../hooks/useBannerHeroOne";
+import styles from '../../../styles/components/general/BannerHeroOne.module.css'
+import{useBannerHeroOne} from '../../hooks/contexHooks/index'
+
 
 const BannerHeroOne = () => {
 
@@ -22,7 +23,7 @@ const BannerHeroOne = () => {
 
             </article>
             <article className={styles.BannerHeroOneImg}>
-                <Image src={ImagenFondo.url} alt="Nosotros" width={500} height={330} priority />
+                <Image src={ImagenFondo.url} alt="Nosotros" width={330} height={230} priority />
             </article>
         </>
     );

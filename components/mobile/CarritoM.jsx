@@ -6,11 +6,13 @@ import Link from "next/link";
 import { useCarrito } from "../hooks/contexHooks/useCarrito";
 import { useUpdateCarrito } from "../hooks/crudCarrito/useUpdateCarrito";
 import { useDeleteCarrito } from "../hooks/crudCarrito/useDeleteCarrito";
+import { PagoDetalle } from "../general/cart/PagoDetalle";
 
 
 const CarritoM = () => {
 
     const { carrito, totalProd, } = useCarrito() || []
+
     const { actualizarCantidad } = useUpdateCarrito() || []
     const { eliminarProducto, onReset, cleanCart, } = useDeleteCarrito() || []
     const [isMounted, setMount] = useState(false)
@@ -20,7 +22,6 @@ const CarritoM = () => {
     }, [])
 
 
-    const { precioTotalDes, precioTotalReg } = totalProd
 
     return (
         <>
@@ -42,7 +43,6 @@ const CarritoM = () => {
                             :
                             (
                                 <ul>
-
                                     {carrito?.map(producto => (
                                         <li key={producto.slug}>
                                             <Link href={`/producto/${producto.slug}`} passHref>
@@ -64,8 +64,6 @@ const CarritoM = () => {
                                                 <input type="number" placeholder="Cantidad" min="1" max="10" value={producto.cantidad} onChange={(e) => actualizarCantidad({
                                                     cantidad: parseInt(e.target.value), slug: producto.slug, salePrice: producto.salePrice, regularPrice: producto.regularPrice
                                                 })} />
-
-
                                                 <button onClick={() => { eliminarProducto(producto.slug) }}> Eliminar</button>
                                             </article>
 
@@ -94,28 +92,24 @@ const CarritoM = () => {
                         <form action="">
                             <input type="text" placeholder="Codigo" />
                             <input type="submit" value="Aplicar" />
-
-
-                            <ul>
-                                <li>
-                                    <h4>Precio Regular total</h4>
-                                    <h4>${precioTotalReg}</h4>
-                                </li>
-                                <li>
-                                    <h4>Precio total Descuento</h4>
-                                    <h4>${precioTotalDes}</h4>
-                                </li>
-                                <li>
-                                    <h4> total</h4>
-                                    <h4>${precioTotalDes + precioTotalReg}</h4>
-                                </li>
-                            </ul>
+                            <PagoDetalle />
                             <div>
-                                <button>
-                                    <Link href={'/pago'}>
-                                        Procesar Pago
-                                    </Link>
-                                </button>
+                                {
+                                    !carrito.length
+                                        ?
+                                        <button disabled={true}>
+                                            <Link href={'/pago'}>
+                                                Procesar Pago
+                                            </Link>
+                                        </button>
+                                        :
+                                        <button disabled={false}>
+                                            <Link href={'/pago'}>
+                                                Procesar Pago
+                                            </Link>
+                                        </button>
+                                }
+
 
                                 <button onClick={onReset}>
                                     {!cleanCart ? 'Limpiar' : 'Limpiando...'}

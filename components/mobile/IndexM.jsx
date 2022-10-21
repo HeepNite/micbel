@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from '../../styles/components/pages/Index.module.css';
-import BannerHeroThree from "../general/BannerHeroThree";
+import BannerHeroThree from "../general/banners/BannerHeroThree";
 import Categoriesbar from "../general/CategoriesBar";
 import ProductSlider from "../general/ProductSlider";
 import ProductsBanner from "../general/ProductsBanner";
