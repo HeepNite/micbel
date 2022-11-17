@@ -3,11 +3,11 @@ import { BannerHeroThreeProvider } from "../components/context/BannerHeroThreeC"
 import Layaut from "../components/general/Layout"
 import PagosM from "../components/mobile/PagosM";
 import PagosW from "../components/web/PagosW";
-import { getBannerHeroOne, getBannerHeroThree, getPaisesWoo } from "../helper/services";
+import { getBannerHeroOne, getBannerHeroThree, getProvincias, } from "../helper/services";
 
-const Pagos = ({ dataBanerHeroOne, dataBannerHeroThree, dataPaisesWoo }) => {
+const Pagos = ({ dataBanerHeroOne, dataBannerHeroThree, dataProvincias }) => {
 
-    console.log(dataPaisesWoo)
+
     return (
         <Layaut pagina={'Pagos'}>
             <main>
@@ -25,16 +25,18 @@ const Pagos = ({ dataBanerHeroOne, dataBannerHeroThree, dataPaisesWoo }) => {
 
 
 export async function getStaticProps() {
+   
     const urlEndPoint = 'pagos'
     const dataBannerHeroThree = await getBannerHeroThree(urlEndPoint)
     const dataBanerHeroOne = await getBannerHeroOne(urlEndPoint)
-    const dataPaisesWoo = await getPaisesWoo()
+    const dataProvincias = await getProvincias()
+
     return {
 
         props: {
-            dataBanerHeroOne, 
+            dataBanerHeroOne,
             dataBannerHeroThree,
-            dataPaisesWoo
+            dataProvincias
         }
     }
 }

@@ -1,7 +1,8 @@
 
+
 /* Productos y categorias Woocommerce */
 
-import { PAISES_WOO, PRODUCTOS_WOO_CATEGORIAS, PRODUCTO_WOO } from "./endPoints"
+import { PRODUCTOS_WOO_CATEGORIAS, PRODUCTO_WOO } from "./endPoints"
 
 export const getCategoriasBar = async () => {
 
@@ -37,15 +38,22 @@ export const getProducto = async (urlEndPoint) => {
 
 }
 
-/* paises y provincias WOO */
-
-export const getPaisesWoo = async () => {
-    const urlPaises = `${PAISES_WOO}`
+/*  provincias, departamentos, municipios, barrios */
+export const getProvinciaEnd = (endPoint) => {
+    if (!endPoint || endPoint === 'Seleccionar provincia') {
+        console.log(endPoint)
+    }
+    else {
+        console.log(endPoint)
+        return endPoint
+    }
+}
+export const getProvincias = async () => {
+    const urlPaises = `https://apis.datos.gob.ar/georef/api/departamentos?provincia=salta&max=23`
     const dataPaises = await fetch(urlPaises)
     const paisesRes = await dataPaises.json()
     return paisesRes
 }
-
 
 /* paginas */
 

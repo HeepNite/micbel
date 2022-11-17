@@ -1,7 +1,7 @@
 import { BannerHeroOneProvider } from "../components/context/BannerHeroOneC";
 import Layaut from "../components/general/Layout";
 import TrabajoM from "../components/mobile/TrabajoM";
-import { getBannerHeroOne, getPaginasGenenerales } from "../helper/services";
+import { getBannerHeroOne, getPaginasGeneneralesInfo } from "../helper/services";
 
 const Trabajo = ({ dataTrabajos, dataBanerHeroOne }) => {
 

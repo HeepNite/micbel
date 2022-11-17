@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react'
 
 export const useSlider = (dataProductos) => {
 
-    const [producto, setProducto] = useState()
+ 
+
+    const [producto, setProducto] = useState() || {}
 
     const [index, setIndex] = useState(0)
 
@@ -23,7 +25,7 @@ export const useSlider = (dataProductos) => {
 
                 }
                 setProducto(dataProd)
-      
+
             }
         })
     }

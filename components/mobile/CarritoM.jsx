@@ -20,9 +20,7 @@ const CarritoM = () => {
     useEffect(() => {
         setMount(true)
     }, [])
-
-
-
+    
     return (
         <>
             {isMounted

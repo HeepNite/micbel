@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from '../../styles/components/pages/Nosotros.module.css';
-import BannerHeroThree from '../general/BannerHeroThree';
-import CategoriesBar from '../general/CategoriesBar';
+import BannerHeroThree from '../general/banners/BannerHeroThree'
+import CategoriesBar from '../general/CategoriesBar'; 
 
 const NosotrosM = ({ dataNosotros }) => {
 

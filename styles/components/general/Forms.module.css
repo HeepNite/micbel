@@ -1,20 +1,54 @@
-.Registration, .Facturacion {
+.Registration,
+.Facturacion {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
+.Registration span,
+.LogIn span,
+.Facturacion span {
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--buttoms-colors);
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 0.5rem 0 rgb(0 0 0 / 20%);
+  margin-bottom: 1rem;
+}
+.Registration span div svg,
+.LogIn span div svg,
+.Facturacion span div svg {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+.Registration span div,
+.LogIn span div,
+.Facturacion span div {
+  font-size: 0.8rem;
+}
+
 .Registration input,
+.Registration select,
 .LogIn input,
-.Facturacion input {
+.Facturacion input,
+.Facturacion select {
   width: 8.7rem;
   height: 1.7rem;
   margin-bottom: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   border-radius: 0.5rem;
   border: 0.1rem solid var(--buttoms-colors);
   padding: 0rem 0.5rem;
   outline-color: var(--buttoms-colors);
+  color: var(--secondary-font-color);
+}
+.Registration select,
+.Facturacion select {
+  font-size: 0.66em;
+}
+.Registration select option {
+  color: var(--primary-font-color);
 }
 
 .Registration input[type="radio"],

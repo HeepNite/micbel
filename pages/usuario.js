@@ -1,11 +1,13 @@
 import Layaut from "../components/general/Layout"
 import User from "../components/general/User"
+import { getProvincias } from "../helper/services"
 
 
 
 
-const usuario = ({ post }) => {
- 
+const usuario = ({ dataProvincias }) => {
+    console.log(dataProvincias)
+
     return (
         <Layaut pagina={'Usuario'}>
             <main>
@@ -16,13 +18,10 @@ const usuario = ({ post }) => {
 }
 
 export async function getStaticProps() {
-
-    const res = await fetch(`${process.env.API_URL_WORDPRESS}/wp-json/wp/v2/posts`)
-    const post = await res.json()
-
+    const dataProvincias = await getProvincias()
     return {
         props: {
-            post
+            dataProvincias
 
         }
     }
